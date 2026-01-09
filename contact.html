@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - APIHub</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen">
+
+     <!-- Navigation Header -->
+     <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
+        <div class="w-full py-4 px-6">
+            <div class="flex items-center justify-between gap-4 min-w-0">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg rotate-3d"></div>
+                    <a href="index.html"
+                        class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent whitespace-nowrap">APIHub</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <ul
+                    class="desktop-menu hidden nav-menu items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 flex-1 justify-center min-w-0 list-none flex">
+                    <li class="nav-item-dropdown">
+                        <a href="index.html" class="nav-link has-dropdown whitespace-nowrap">Home</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="index.html" class="nav-dropdown-link">Home</a></li>
+                            <li><a href="home2.html" class="nav-dropdown-link">Home 2</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="marketplace.html" class="nav-link has-dropdown whitespace-nowrap">Marketplace</a>
+                        <ul class="nav-dropdown">
+                            
+                            <li><a href="api-details.html" class="nav-dropdown-link">API Details</a></li>
+                            <li><a href="marketplace.html" class="nav-dropdown-link">Featured APIs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="services.html" class="nav-link has-dropdown whitespace-nowrap">Services</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="services-details.html" class="nav-dropdown-link">Service Details</a></li>
+                            <li><a href="services.html" class="nav-dropdown-link">Custom Services</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html" class="nav-link whitespace-nowrap">Contact</a></li>
+                    <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <a href="dashboard.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Dashboard</a>
+                        <a href="login.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Login</a>
+                        <a href="register.html"
+                            class="px-4 py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold text-white">Sign
+                            Up</a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Toggle -->
+                <button id="mobileMenuButton"
+                    class="mobile-menu-toggle w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg bg-[#1E40AF]/10 border border-[#1E40AF]/30 text-[#0F172A] hover:bg-[#1E40AF]/20 transition-colors flex-shrink-0"
+                    aria-label="Toggle navigation" aria-expanded="false">
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="mobile-menu-overlay hidden fixed inset-0 z-[60] flex items-start justify-end">
+        <div
+            class="mobile-menu-content relative w-full sm:w-[75%] md:w-[50%] lg:w-[35%] h-[80vh] max-h-screen bg-white/95 backdrop-blur-2xl rounded-l-2xl border-l border-t border-b border-[#1E40AF]/30 shadow-2xl flex flex-col">
+            <button id="mobileMenuClose"
+                class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg bg-[#1E40AF]/10 border border-[#1E40AF]/30 text-[#0F172A] hover:bg-[#1E40AF]/20 transition-colors text-xl z-10">✕</button>
+
+            <ul class="w-full px-6 py-8 space-y-2 overflow-y-auto flex-1 text-center pb-20">
+                <li class="nav-item-dropdown">
+                    <a href="index.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Home</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="index.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Home</a></li>
+                        <li><a href="home2.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Home 2</a></li>
+                    
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="marketplace.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Marketplace</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                       
+                        <li><a href="api-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">API
+                                Details</a></li>
+                        <li><a href="marketplace.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Featured
+                                APIs</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="services.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Services</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="services-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Service
+                                Details</a></li>
+                        <li><a href="services.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Custom
+                                Services</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contact.html"
+                        class="block py-3 px-4 nav-link rounded-lg hover:bg-[#1E40AF]/10 transition-colors">Contact</a>
+                </li>
+
+                <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
+                    <a href="dashboard.html"
+                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold text-[#0F172A]">Dashboard</a>
+                    <a href="login.html"
+                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold">Login</a>
+                    <a href="register.html"
+                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform text-center font-semibold text-[#0F172A]">Sign
+                        Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="contact-bg-animation"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-6xl md:text-8xl font-bold font-space-grotesk mb-6 contact-title">
+                    <span class="block">Get In</span>
+                    <span
+                        class="block bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">Touch</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                    We're here to help! Reach out to us for any questions, support, or inquiries.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Contact Form -->
+                <div class="lg:col-span-2">
+                    <div class="contact-form-card">
+                        <h2 class="text-3xl font-bold mb-6 font-space-grotesk text-center">Send us a Message</h2>
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="form-group">
+                                    <label for="firstName" class="block text-sm font-semibold mb-2">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" placeholder="John" required
+                                        class="contact-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="block text-sm font-semibold mb-2">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Doe" required
+                                        class="contact-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="block text-sm font-semibold mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required
+                                    class="contact-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject" class="block text-sm font-semibold mb-2">Subject</label>
+                                <select id="subject" name="subject" required class="contact-input">
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="sales">Sales Question</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="block text-sm font-semibold mb-2">Message</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help..."
+                                    required class="contact-input contact-textarea"></textarea>
+                            </div>
+
+                            <button type="submit" class="contact-submit-btn">
+                                <span>Send Message</span>
+                                <span class="btn-arrow">→</span>
+                            </button>
+                        </form>
+
+                        <!-- Follow Us Section -->
+                        <div class="mt-8 pt-8 border-t border-white/10">
+                            <h3 class="text-2xl font-bold mb-6 font-space-grotesk text-center">Follow Us</h3>
+                            <div class="flex justify-center items-center gap-4">
+                                <a href="#" 
+                                    class="w-14 h-14 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center hover:bg-white/20 transition-all text-2xl hover:scale-110"
+                                    aria-label="Facebook">
+                                    📘
+                                </a>
+                                <a href="#" 
+                                    class="w-14 h-14 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center hover:bg-white/20 transition-all text-2xl hover:scale-110"
+                                    aria-label="Twitter">
+                                    🐦
+                                </a>
+                                <a href="#" 
+                                    class="w-14 h-14 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center hover:bg-white/20 transition-all text-2xl hover:scale-110"
+                                    aria-label="LinkedIn">
+                                    💼
+                                </a>
+                                <a href="#" 
+                                    class="w-14 h-14 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center hover:bg-white/20 transition-all text-2xl hover:scale-110"
+                                    aria-label="Instagram">
+                                    📷
+                                </a>
+                                <a href="#" 
+                                    class="w-14 h-14 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center hover:bg-white/20 transition-all text-2xl hover:scale-110"
+                                    aria-label="GitHub">
+                                    ⚡
+                                </a>
+                                <a href="#" 
+                                    class="w-14 h-14 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center hover:bg-white/20 transition-all text-2xl hover:scale-110"
+                                    aria-label="Discord">
+                                    ◆
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info Sidebar -->
+                <div class="space-y-6">
+                    <!-- Contact Information -->
+                    <div class="contact-info-card">
+                        <h3 class="text-2xl font-bold mb-6 font-space-grotesk text-center">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">📍</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Address</h4>
+                                    <p class="text-[#1F2937] text-sm">123 API Street<br>San Francisco, CA 94105<br>United
+                                        States</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">📞</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Phone</h4>
+                                    <p class="text-[#1F2937] text-sm">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">✉️</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Email</h4>
+                                    <p class="text-[#1F2937] text-sm">hello@apihub.com<br>support@apihub.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">🕒</div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Business Hours</h4>
+                                    <p class="text-[#1F2937] text-sm">Monday - Friday: 9:00 AM - 6:00 PM PST<br>Saturday
+                                        - Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="contact-info-card">
+                        <h3 class="text-2xl font-bold mb-6 font-space-grotesk">Quick Actions</h3>
+                        <div class="space-y-3">
+                            <a href="services.html" class="quick-action-btn">
+                                <span>🚀</span>
+                                <span>View Services</span>
+                            </a>
+                            <a href="marketplace.html" class="quick-action-btn">
+                                <span>🛒</span>
+                                <span>Browse Marketplace</span>
+                            </a>
+                            <a href="dashboard.html" class="quick-action-btn">
+                                <span>📊</span>
+                                <span>Go to Dashboard</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8 font-space-grotesk">Find Us</h2>
+                <div class="contact-map-container">
+                    <div class="contact-map-placeholder">
+                        <div class="map-content">
+                            <div class="text-6xl mb-4">🗺️</div>
+                            <h3 class="text-2xl font-bold mb-2">Interactive Map</h3>
+                            <p class="text-[#1F2937]">123 API Street, San Francisco, CA 94105</p>
+                            <button
+                                class="mt-6 px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-teal-500/50 transition-all">
+                                Open in Google Maps
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 font-space-grotesk">Frequently Asked Questions</h2>
+                <div class="space-y-4">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>How can I get started with APIHub?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-gray-300">Getting started is easy! Simply create an account, browse our
+                                marketplace, and select the APIs you need. Our team is available 24/7 to help with
+                                integration.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>What payment methods do you accept?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-gray-300">We accept all major credit cards, PayPal, and bank transfers.
+                                Enterprise customers can also set up invoicing.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Do you offer technical support?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-gray-300">Yes! We offer 24/7 technical support via email, live chat, and
+                                phone. Premium plans include priority support with faster response times.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Can I integrate multiple APIs?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="text-gray-300">Absolutely! You can integrate as many APIs as you need. Our
+                                platform is designed to handle multiple API integrations seamlessly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-teal-500/20 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-lg"></div>
+                        <span
+                            class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">APIHub</span>
+                    </div>
+                    <p class="text-[#1F2937] mb-4 max-w-md">
+                        Get in touch with us for any questions, support, or inquiries. We're here to help you succeed.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="Twitter">
+                            𝕏
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="GitHub">
+                            ⚡
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="LinkedIn">
+                            in
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="Discord">
+                            ◆
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="index.html" class="hover:text-[#0F172A] transition-colors">Home</a></li>
+                        <li><a href="marketplace.html" class="hover:text-[#0F172A] transition-colors">Marketplace</a></li>
+                        <li><a href="services.html" class="hover:text-[#0F172A] transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="hover:text-[#0F172A] transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Account</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="login.html" class="hover:text-[#0F172A] transition-colors">Login</a></li>
+                        <li><a href="register.html" class="hover:text-[#0F172A] transition-colors">Sign Up</a></li>
+                        <li><a href="dashboard.html" class="hover:text-[#0F172A] transition-colors">My Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-teal-500/20 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-[#1F2937] text-sm mb-4 md:mb-0">© 2025 APIHub. All rights reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm text-[#1F2937]">
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Terms of Service</a>
+                        <a href="contact.html" class="hover:text-[#0F172A] transition-colors">Contact Us</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // FAQ toggle
+        function toggleFaq(button) {
+            const faqItem = button.closest('.faq-item');
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = button.querySelector('.faq-icon');
+
+            const isOpen = answer.classList.contains('open');
+
+            // Close all FAQs
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('open');
+            });
+            document.querySelectorAll('.faq-icon').forEach(item => {
+                item.textContent = '+';
+            });
+
+            // Toggle current FAQ
+            if (!isOpen) {
+                answer.classList.add('open');
+                icon.textContent = '−';
+            }
+        }
+    </script>
+</body>
+
+</html>

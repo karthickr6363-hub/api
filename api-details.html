@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Details - Stripe Payment API</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen">
+
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
+        <div class="w-full py-4 px-6">
+            <div class="flex items-center justify-between gap-4 min-w-0">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg rotate-3d"></div>
+                    <a href="index.html"
+                        class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF]-400 to-[#22D3EE]-400 bg-clip-text text-transparent whitespace-nowrap">APIHub</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <ul
+                    class="desktop-menu hidden nav-menu items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 flex-1 justify-center min-w-0 list-none flex">
+                    <li class="nav-item-dropdown">
+                        <a href="index.html" class="nav-link has-dropdown whitespace-nowrap">Home</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="index.html" class="nav-dropdown-link">Home</a></li>
+                            <li><a href="home2.html" class="nav-dropdown-link">Home 2</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="marketplace.html" class="nav-link has-dropdown whitespace-nowrap">Marketplace</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="marketplace.html" class="nav-dropdown-link">Browse APIs</a></li>
+                            <li><a href="api-details.html" class="nav-dropdown-link">API Details</a></li>
+                            <li><a href="marketplace.html" class="nav-dropdown-link">Featured APIs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="services.html" class="nav-link has-dropdown whitespace-nowrap">Services</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="services-details.html" class="nav-dropdown-link">Service Details</a></li>
+                            <li><a href="services.html" class="nav-dropdown-link">Custom Services</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html" class="nav-link whitespace-nowrap">Contact</a></li>
+                    <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <a href="dashboard.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold">Dashboard</a>
+                        <a href="login.html"
+                            class="px-4 py-2 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition-all whitespace-nowrap text-sm font-semibold">Login</a>
+                        <a href="register.html"
+                            class="px-4 py-2 bg-gradient-to-r from-[#1E40AF]-500 to-[#22D3EE]-500 rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold">Sign
+                            Up</a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Toggle -->
+                <button id="mobileMenuButton"
+                    class="mobile-menu-toggle w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg bg-white/10 border border-white/20 text-[#0F172A] hover:bg-white/20 transition-colors flex-shrink-0"
+                    aria-label="Toggle navigation" aria-expanded="false">
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF]-400 to-[#22D3EE]-400 rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF]-400 to-[#22D3EE]-400 rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF]-400 to-[#22D3EE]-400 rounded-full transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="mobile-menu-overlay hidden fixed inset-0 z-[60] flex items-start justify-end">
+        <div
+            class="mobile-menu-content relative w-full sm:w-[75%] md:w-[50%] lg:w-[35%] h-[80vh] max-h-screen bg-slate-900/95 backdrop-blur-2xl rounded-l-2xl border-l border-t border-b border-purple-500/30 shadow-2xl flex flex-col">
+            <button id="mobileMenuClose"
+                class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 border border-white/20 text-[#0F172A] hover:bg-white/20 transition-colors text-xl z-10">✕</button>
+
+            <ul class="w-full px-6 py-8 space-y-2 overflow-y-auto flex-1 text-center pb-20">
+                <li class="nav-item-dropdown">
+                    <a href="index.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors">
+                        <span>Home</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="index.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Home</a></li>
+                        <li><a href="home2.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Home 2</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="marketplace.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors">
+                        <span>Marketplace</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="marketplace.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Browse
+                                APIs</a></li>
+                        <li><a href="api-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">API
+                                Details</a></li>
+                        <li><a href="marketplace.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Featured
+                                APIs</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="services.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors">
+                        <span>Services</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="services-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Service
+                                Details</a></li>
+                        <li><a href="services.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Custom
+                                Services</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contact.html"
+                        class="block py-3 px-4 nav-link rounded-lg hover:bg-white/10 transition-colors">Contact</a>
+                </li>
+
+                <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
+                    <a href="dashboard.html"
+                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold">Dashboard</a>
+                    <a href="login.html"
+                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition-all text-center font-semibold">Login</a>
+                    <a href="register.html"
+                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF]-500 to-[#22D3EE]-500 rounded-lg hover:scale-105 transition-transform text-center font-semibold">Sign
+                        Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="details-bg-animation"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center space-x-4 mb-6">
+                    <a href="marketplace.html" class="text-[#1F2937] hover:text-[#0F172A] transition-colors">← Back to
+                        Marketplace</a>
+                </div>
+                <div class="details-hero-card">
+                    <div class="flex items-start justify-between mb-8">
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-4xl transform hover:rotate-12 transition-transform">
+                                💳
+                            </div>
+                            <div>
+                                <h1 class="text-5xl font-bold font-space-grotesk mb-2">Stripe Payment API</h1>
+                                <p class="text-[#1F2937] text-lg">By Stripe Inc.</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="flex items-center space-x-1 mb-2">
+                                <span class="text-yellow-400 text-2xl">★</span>
+                                <span class="text-xl font-bold">4.9</span>
+                                <span class="text-[#1F2937]">(1,234 reviews)</span>
+                            </div>
+                            <span
+                                class="px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold">Active</span>
+                        </div>
+                    </div>
+                    <p class="text-xl text-gray-300 leading-relaxed mb-8">
+                        Secure payment processing API for your applications. Accept payments, manage subscriptions, and
+                        handle invoices with ease.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 transition-all">
+                            Get API Key
+                        </button>
+                        <button
+                            class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all">
+                            View Documentation
+                        </button>
+                        <button
+                            class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all">
+                            Test Endpoint
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Overview -->
+                    <div class="details-section-card">
+                        <h2 class="text-3xl font-bold mb-6 font-space-grotesk">Overview</h2>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            The Stripe Payment API provides a comprehensive solution for processing payments online.
+                            Whether you're building an e-commerce platform, SaaS application, or marketplace,
+                            Stripe offers the tools you need to accept payments securely.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            With support for over 135 currencies and multiple payment methods including credit cards,
+                            digital wallets, and bank transfers, Stripe makes it easy to accept payments from customers
+                            worldwide.
+                        </p>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="details-section-card">
+                        <h2 class="text-3xl font-bold mb-6 font-space-grotesk">Key Features</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="feature-item">
+                                <div class="text-2xl mb-2">🔒</div>
+                                <h3 class="font-semibold mb-1">Secure Payments</h3>
+                                <p class="text-[#1F2937] text-sm">PCI DSS Level 1 compliant</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="text-2xl mb-2">🌍</div>
+                                <h3 class="font-semibold mb-1">Global Support</h3>
+                                <p class="text-[#1F2937] text-sm">135+ currencies supported</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="text-2xl mb-2">📊</div>
+                                <h3 class="font-semibold mb-1">Real-time Analytics</h3>
+                                <p class="text-[#1F2937] text-sm">Track payments and revenue</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="text-2xl mb-2">⚡</div>
+                                <h3 class="font-semibold mb-1">Fast Integration</h3>
+                                <p class="text-[#1F2937] text-sm">Get started in minutes</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Example -->
+                    <div class="details-section-card">
+                        <h2 class="text-3xl font-bold mb-6 font-space-grotesk">Quick Start</h2>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>JavaScript</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre class="code-content"><code>// Install Stripe SDK
+npm install stripe
+
+// Initialize Stripe
+const stripe = require('stripe')('sk_test_...');
+
+// Create a payment intent
+const paymentIntent = await stripe.paymentIntents.create({
+  amount: 2000,
+  currency: 'usd',
+  payment_method_types: ['card'],
+});
+
+console.log(paymentIntent);</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    <!-- Pricing -->
+                    <div class="details-sidebar-card">
+                        <h3 class="text-xl font-bold mb-4">Pricing</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-[#1F2937]">Per Transaction</span>
+                                <span class="font-semibold">2.9% + $0.30</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-[#1F2937]">Monthly Fee</span>
+                                <span class="font-semibold">Free</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-[#1F2937]">Setup Fee</span>
+                                <span class="font-semibold">Free</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="details-sidebar-card">
+                        <h3 class="text-xl font-bold mb-4">Statistics</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-[#1F2937]">Uptime</span>
+                                    <span class="font-semibold">99.99%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 99.99%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-[#1F2937]">Response Time</span>
+                                    <span class="font-semibold">120ms</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-[#1F2937]">Success Rate</span>
+                                    <span class="font-semibold">98.5%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 98.5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="details-sidebar-card">
+                        <h3 class="text-xl font-bold mb-4">Categories</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Payment</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Finance</span>
+                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm">E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-blue-500/20 mt-16 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg"></div>
+                        <span
+                            class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">APIHub</span>
+                    </div>
+                    <p class="text-[#1F2937] mb-4 max-w-md">
+                        Explore detailed API documentation, test endpoints, and integrate seamlessly with our
+                        comprehensive API details.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="Twitter">
+                            𝕏
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="GitHub">
+                            ⚡
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="LinkedIn">
+                            in
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="Discord">
+                            ◆
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="index.html" class="hover:text-[#0F172A] transition-colors">Home</a></li>
+                        <li><a href="marketplace.html" class="hover:text-[#0F172A] transition-colors">Marketplace</a></li>
+                        <li><a href="services.html" class="hover:text-[#0F172A] transition-colors">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Account</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="login.html" class="hover:text-[#0F172A] transition-colors">Login</a></li>
+                        <li><a href="register.html" class="hover:text-[#0F172A] transition-colors">Sign Up</a></li>
+                        <li><a href="dashboard.html" class="hover:text-[#0F172A] transition-colors">My Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-500/20 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-[#1F2937] text-sm mb-4 md:mb-0">© 2025 APIHub. All rights reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm text-[#1F2937]">
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Contact Us</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

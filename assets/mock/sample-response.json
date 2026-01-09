@@ -1,0 +1,126 @@
+{
+  "api": {
+    "id": "stripe-payment-api",
+    "name": "Stripe Payment API",
+    "version": "v1.0",
+    "provider": "Stripe Inc.",
+    "description": "Secure payment processing API for your applications. Accept payments, manage subscriptions, and handle invoices with ease.",
+    "category": "Payment",
+    "tags": ["payment", "finance", "e-commerce", "subscription"],
+    "rating": 4.9,
+    "reviews": 1234,
+    "status": "active",
+    "uptime": 99.99,
+    "responseTime": 120,
+    "successRate": 98.5
+  },
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/v1/payment_intents",
+      "description": "Create a new payment intent",
+      "parameters": {
+        "amount": {
+          "type": "integer",
+          "required": true,
+          "description": "Amount in cents"
+        },
+        "currency": {
+          "type": "string",
+          "required": true,
+          "description": "Three-letter ISO currency code"
+        },
+        "payment_method_types": {
+          "type": "array",
+          "required": false,
+          "description": "List of payment method types"
+        }
+      },
+      "response": {
+        "id": "pi_1234567890",
+        "object": "payment_intent",
+        "amount": 2000,
+        "currency": "usd",
+        "status": "succeeded"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payment_intents/{id}",
+      "description": "Retrieve a payment intent by ID",
+      "parameters": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "Payment intent ID"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/customers",
+      "description": "Create a new customer",
+      "parameters": {
+        "email": {
+          "type": "string",
+          "required": true,
+          "description": "Customer email address"
+        },
+        "name": {
+          "type": "string",
+          "required": false,
+          "description": "Customer full name"
+        }
+      }
+    }
+  ],
+  "pricing": {
+    "plan": "pay-as-you-go",
+    "transactionFee": {
+      "percentage": 2.9,
+      "fixed": 0.30,
+      "currency": "USD"
+    },
+    "monthlyFee": 0,
+    "setupFee": 0,
+    "limits": {
+      "requestsPerMonth": 1000000,
+      "requestsPerSecond": 100
+    }
+  },
+  "authentication": {
+    "type": "api_key",
+    "header": "Authorization",
+    "format": "Bearer {api_key}",
+    "example": "Bearer sk_live_51H..."
+  },
+  "documentation": {
+    "url": "https://stripe.com/docs/api",
+    "sdk": {
+      "javascript": "npm install stripe",
+      "python": "pip install stripe",
+      "php": "composer require stripe/stripe-php"
+    }
+  },
+  "sampleCode": {
+    "javascript": "const stripe = require('stripe')('sk_test_...');\nconst paymentIntent = await stripe.paymentIntents.create({\n  amount: 2000,\n  currency: 'usd',\n  payment_method_types: ['card'],\n});",
+    "python": "import stripe\nstripe.api_key = 'sk_test_...'\npayment_intent = stripe.PaymentIntent.create(\n  amount=2000,\n  currency='usd',\n  payment_method_types=['card'],\n)",
+    "curl": "curl https://api.stripe.com/v1/payment_intents \\\n  -u sk_test_...: \\\n  -d amount=2000 \\\n  -d currency=usd"
+  },
+  "statistics": {
+    "totalRequests": 1234567,
+    "successfulRequests": 1216048,
+    "failedRequests": 18519,
+    "averageResponseTime": 120,
+    "peakUsage": {
+      "date": "2024-12-01",
+      "requests": 50000
+    }
+  },
+  "support": {
+    "email": "support@stripe.com",
+    "documentation": "https://stripe.com/docs",
+    "statusPage": "https://status.stripe.com"
+  }
+}
+

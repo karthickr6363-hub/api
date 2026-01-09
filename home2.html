@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Marketplace - Next Generation Platform</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="font-inter bg-[#F8FAFC] text-[#0F172A] overflow-x-hidden">
+
+     <!-- Navigation Header -->
+     <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
+        <div class="w-full py-4 px-6">
+            <div class="flex items-center justify-between gap-4 min-w-0">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg rotate-3d"></div>
+                    <a href="index.html"
+                        class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent whitespace-nowrap">APIHub</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <ul
+                    class="desktop-menu hidden nav-menu items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 flex-1 justify-center min-w-0 list-none flex">
+                    <li class="nav-item-dropdown">
+                        <a href="index.html" class="nav-link has-dropdown whitespace-nowrap">Home</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="index.html" class="nav-dropdown-link">Home</a></li>
+                            <li><a href="home2.html" class="nav-dropdown-link">Home 2</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="marketplace.html" class="nav-link has-dropdown whitespace-nowrap">Marketplace</a>
+                        <ul class="nav-dropdown">
+                            
+                            <li><a href="api-details.html" class="nav-dropdown-link">API Details</a></li>
+                            <li><a href="marketplace.html" class="nav-dropdown-link">Featured APIs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="services.html" class="nav-link has-dropdown whitespace-nowrap">Services</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="services-details.html" class="nav-dropdown-link">Service Details</a></li>
+                            <li><a href="services.html" class="nav-dropdown-link">Custom Services</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html" class="nav-link whitespace-nowrap">Contact</a></li>
+                    <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <a href="dashboard.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Dashboard</a>
+                        <a href="login.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Login</a>
+                        <a href="register.html"
+                            class="px-4 py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold text-white">Sign
+                            Up</a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Toggle -->
+                <button id="mobileMenuButton"
+                    class="mobile-menu-toggle w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg bg-[#1E40AF]/10 border border-[#1E40AF]/30 text-[#0F172A] hover:bg-[#1E40AF]/20 transition-colors flex-shrink-0"
+                    aria-label="Toggle navigation" aria-expanded="false">
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="mobile-menu-overlay hidden fixed inset-0 z-[60] flex items-start justify-end">
+        <div
+            class="mobile-menu-content relative w-full sm:w-[75%] md:w-[50%] lg:w-[35%] h-[80vh] max-h-screen bg-white/95 backdrop-blur-2xl rounded-l-2xl border-l border-t border-b border-[#1E40AF]/30 shadow-2xl flex flex-col">
+            <button id="mobileMenuClose"
+                class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg bg-[#1E40AF]/10 border border-[#1E40AF]/30 text-[#0F172A] hover:bg-[#1E40AF]/20 transition-colors text-xl z-10">✕</button>
+
+            <ul class="w-full px-6 py-8 space-y-2 overflow-y-auto flex-1 text-center pb-20">
+                <li class="nav-item-dropdown">
+                    <a href="index.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Home</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="index.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Home</a></li>
+                        <li><a href="home2.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Home 2</a></li>
+                    
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="marketplace.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Marketplace</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                       
+                        <li><a href="api-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">API
+                                Details</a></li>
+                        <li><a href="marketplace.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Featured
+                                APIs</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="services.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Services</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="services-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Service
+                                Details</a></li>
+                        <li><a href="services.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Custom
+                                Services</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contact.html"
+                        class="block py-3 px-4 nav-link rounded-lg hover:bg-[#1E40AF]/10 transition-colors">Contact</a>
+                </li>
+
+                <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
+                    <a href="dashboard.html"
+                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold text-[#0F172A]">Dashboard</a>
+                    <a href="login.html"
+                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold">Login</a>
+                    <a href="register.html"
+                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform text-center font-semibold text-[#0F172A]">Sign
+                        Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section - Split Screen Design -->
+    <section class="min-h-screen flex items-center justify-center relative pt-20 home-hero">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="floating-shape shape-1" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(6, 182, 212, 0.3));"></div>
+            <div class="floating-shape shape-2" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.3), rgba(99, 102, 241, 0.3));"></div>
+            <div class="floating-shape shape-3" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.2));"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+                <!-- Left Side - Content -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-block mb-6 px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-full">
+                        <span class="text-sm font-semibold bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent">
+                            <i class="fas fa-rocket mr-2"></i>Next Generation API Platform
+                        </span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold font-space-grotesk mb-6 leading-tight">
+                        <span class="block">Build with</span>
+                        <span class="block bg-gradient-to-r from-indigo-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent animate-gradient">
+                            Infinite Power
+                        </span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-[#1F2937] mb-8 leading-relaxed">
+                        Unlock the potential of thousands of APIs. Create, integrate, and scale your applications with our revolutionary platform.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button
+                            class="px-8 py-4 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-xl text-lg font-semibold text-[#0F172A] hover:shadow-2xl hover:shadow-[#22D3EE]/50 transform hover:scale-105 transition-all duration-300 button-3d">
+                            Start Building Now
+                        </button>
+                        <button
+                            class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-xl text-lg font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-2">
+                            <i class="fas fa-play-circle"></i> Watch Video
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Side - Interactive Stats -->
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="stat-card-3d">
+                        <div class="stat-card-inner">
+                            <div class="stat-card-front">
+                                <div class="text-5xl font-bold mb-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent" data-count="1000">0</div>
+                                <div class="text-2xl mb-1">+</div>
+                                <p class="text-[#1F2937] text-sm">APIs Available</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card-3d">
+                        <div class="stat-card-inner">
+                            <div class="stat-card-front">
+                                <div class="text-5xl font-bold mb-2 bg-gradient-to-r from-[#22D3EE] to-[#1E40AF] bg-clip-text text-transparent" data-count="5000">0</div>
+                                <div class="text-2xl mb-1">+</div>
+                                <p class="text-[#1F2937] text-sm">Active Developers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card-3d">
+                        <div class="stat-card-inner">
+                            <div class="stat-card-front">
+                                <div class="text-5xl font-bold mb-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent" data-count="99.9">0</div>
+                                <div class="text-2xl mb-1">%</div>
+                                <p class="text-[#1F2937] text-sm">Uptime SLA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card-3d">
+                        <div class="stat-card-inner">
+                            <div class="stat-card-front">
+                                <div class="text-5xl font-bold mb-2 bg-gradient-to-r from-[#22D3EE] to-[#1E40AF] bg-clip-text text-transparent" data-count="24">0</div>
+                                <div class="text-2xl mb-1">/7</div>
+                                <p class="text-[#1F2937] text-sm">Support Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Showcase Section -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4 font-space-grotesk">Experience the Future</h2>
+                <p class="text-xl text-[#1F2937] max-w-2xl mx-auto">Discover what makes our platform the choice of leading developers worldwide</p>
+            </div>
+
+            <!-- Interactive Timeline -->
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="text-2xl font-bold mb-3">Instant Integration</h3>
+                            <p class="text-[#1F2937]">Connect to any API in seconds with our one-click integration system</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="text-2xl font-bold mb-3">Smart Analytics</h3>
+                            <p class="text-[#1F2937]">Real-time insights and AI-powered recommendations for optimal performance</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="text-2xl font-bold mb-3">Global Scale And Edge Computing</h3>
+                            <p class="text-[#1F2937]">Deploy anywhere with our worldwide infrastructure and edge computing</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="text-2xl font-bold mb-3">Enterprise Ready</h3>
+                            <p class="text-[#1F2937]">Bank-level security and compliance for mission-critical applications</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Showcase Grid -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-showcase-card">
+                    <div class="feature-icon-large text-[#1E40AF]"><i class="fas fa-bolt"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Lightning Speed</h3>
+                    <p class="text-[#1F2937] mb-4">Sub-100ms response times with our optimized infrastructure</p>
+                    <div class="progress-indicator">
+                        <div class="progress-bar-indigo" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="feature-showcase-card">
+                    <div class="feature-icon-large text-[#1E40AF]"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Zero Trust Security</h3>
+                    <p class="text-[#1F2937] mb-4">End-to-end encryption with advanced threat detection</p>
+                    <div class="progress-indicator">
+                        <div class="progress-bar-indigo" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="feature-showcase-card">
+                    <div class="feature-icon-large text-[#1E40AF]"><i class="fas fa-globe-americas"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Global Network & Edge Computing</h3>
+                    <p class="text-[#1F2937] mb-4">200+ data centers across 50+ countries</p>
+                    <div class="progress-indicator">
+                        <div class="progress-bar-indigo" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="feature-showcase-card">
+                    <div class="feature-icon-large text-[#1E40AF]"><i class="fas fa-robot"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">AI-Powered</h3>
+                    <p class="text-[#1F2937] mb-4">Machine learning optimizes your API calls automatically</p>
+                    <div class="progress-indicator">
+                        <div class="progress-bar-indigo" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="feature-showcase-card">
+                    <div class="feature-icon-large text-[#1E40AF]"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Advanced Metrics</h3>
+                    <p class="text-[#1F2937] mb-4">Deep insights into usage patterns and performance</p>
+                    <div class="progress-indicator">
+                        <div class="progress-bar-indigo" style="width: 87%"></div>
+                    </div>
+                </div>
+                <div class="feature-showcase-card">
+                    <div class="feature-icon-large text-[#1E40AF]"><i class="fas fa-sync-alt"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Auto-Scaling</h3>
+                    <p class="text-[#1F2937] mb-4">Seamlessly handle traffic spikes without manual</p>
+                    <div class="progress-indicator">
+                        <div class="progress-bar-indigo" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 font-space-grotesk">What Developers Say</h2>
+            <div class="max-w-5xl mx-auto">
+                <div class="testimonial-carousel">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-content">
+                            <div class="text-2xl mb-4 text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-xl text-[#1F2937] mb-6 italic">"APIHub transformed how we build products. The integration speed is incredible and the documentation is top-notch."</p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] flex items-center justify-center text-2xl font-bold">JD</div>
+                                <div>
+                                    <div class="font-bold text-lg">John Doe</div>
+                                    <div class="text-[#1F2937]">CTO, TechCorp</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="text-2xl mb-4 text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-xl text-[#1F2937] mb-6 italic">"The analytics dashboard gives us insights we never had before. Game changer for our team!"</p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#22D3EE] to-[#1E40AF] flex items-center justify-center text-2xl font-bold">SM</div>
+                                <div>
+                                    <div class="font-bold text-lg">Sarah Miller</div>
+                                    <div class="text-[#1F2937]">Lead Developer, StartupXYZ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="text-2xl mb-4 text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-xl text-[#1F2937] mb-6 italic">"Best API marketplace I've used. The support team is responsive and the platform is rock solid."</p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] flex items-center justify-center text-2xl font-bold">MJ</div>
+                                <div>
+                                    <div class="font-bold text-lg">Mike Johnson</div>
+                                    <div class="text-[#1F2937]">Founder, DevStudio</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center gap-3 mt-8">
+                    <button class="testimonial-dot active" data-slide="0"></button>
+                    <button class="testimonial-dot" data-slide="1"></button>
+                    <button class="testimonial-dot" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4 font-space-grotesk">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-[#1F2937]">Choose the plan that fits your needs</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                        <div class="text-4xl font-bold mb-1">$0</div>
+                        <p class="text-[#1F2937]">Forever free</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i> 1,000 API calls/month</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i> Basic analytics</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i> Community support</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i> 10 API integrations</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i> Edge Computing</li>
+                    </ul>
+                    <button class="pricing-btn">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                        <div class="text-4xl font-bold mb-1">$49</div>
+                        <p class="text-[#1F2937]">per month</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i>100,000 API calls/month</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i>Advanced analytics</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i>Priority support</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i>Unlimited integrations</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i>Custom webhooks</li>
+                    </ul>
+                    <button class="pricing-btn featured-btn">Free Trial</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                        <div class="text-4xl font-bold mb-1">Custom</div>
+                        <p class="text-[#1F2937]">Contact us</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i>Unlimited API calls</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i>White-label solution</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i>Dedicated support</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i>SLA guarantee</li>
+                        <li><i class="fas fa-check text-[#1E40AF] mr-2"></i>Custom integrations</li>
+                    </ul>
+                    <button class="pricing-btn">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center cta-section">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 font-space-grotesk">
+                    Ready to Transform Your Development?
+                </h2>
+                <p class="text-lg md:text-xl text-[#1F2937] mb-8">Join thousands of developers building the future with APIHub</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="marketplace.html"
+                        class="inline-block px-6 py-3 md:px-10 md:py-5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-xl text-base md:text-lg font-semibold hover:shadow-2xl hover:shadow-cyan-500/50 transform hover:scale-105 transition-all duration-300">
+                        Explore Marketplace
+                    </a>
+                    <a href="register.html"
+                        class="inline-block px-6 py-3 md:px-10 md:py-5 bg-white/10 backdrop-blur-lg rounded-xl text-base md:text-lg font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300">
+                        Create Free Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-[#1E40AF]/20 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg"></div>
+                        <span
+                            class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent">APIHub</span>
+                    </div>
+                    <p class="text-[#1F2937] mb-4 max-w-md">
+                        Connect to thousands of powerful APIs. Build faster. Scale effortlessly. Join the future of
+                        API
+                        integration.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="Twitter">
+                            𝕏
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="GitHub">
+                            ⚡
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="LinkedIn">
+                            in
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="Discord">
+                            ◆
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="index.html" class="hover:text-[#0F172A] transition-colors">Home</a></li>
+                        <li><a href="home2.html" class="hover:text-[#0F172A] transition-colors">Home 2</a></li>
+                        <li><a href="marketplace.html" class="hover:text-[#0F172A] transition-colors">Marketplace</a>
+                        </li>
+                        <li><a href="services.html" class="hover:text-[#0F172A] transition-colors">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Account</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="login.html" class="hover:text-[#0F172A] transition-colors">Login</a></li>
+                        <li><a href="register.html" class="hover:text-[#0F172A] transition-colors">Sign Up</a></li>
+                        <li><a href="dashboard.html" class="hover:text-[#0F172A] transition-colors">My Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-[#1E40AF]/20 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-[#1F2937] text-sm mb-4 md:mb-0">© 2025 APIHub. All rights reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm text-[#1F2937]">
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Contact Us</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/home2.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - APIHub</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body
+    class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen overflow-x-hidden">
+
+      <!-- Navigation Header -->
+      <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
+        <div class="w-full py-4 px-6">
+            <div class="flex items-center justify-between gap-4 min-w-0">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg rotate-3d"></div>
+                    <a href="index.html"
+                        class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent whitespace-nowrap">APIHub</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <ul
+                    class="desktop-menu hidden nav-menu items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 flex-1 justify-center min-w-0 list-none flex">
+                    <li class="nav-item-dropdown">
+                        <a href="index.html" class="nav-link has-dropdown whitespace-nowrap">Home</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="index.html" class="nav-dropdown-link">Home</a></li>
+                            <li><a href="home2.html" class="nav-dropdown-link">Home 2</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="marketplace.html" class="nav-link has-dropdown whitespace-nowrap">Marketplace</a>
+                        <ul class="nav-dropdown">
+                            
+                            <li><a href="api-details.html" class="nav-dropdown-link">API Details</a></li>
+                            <li><a href="marketplace.html" class="nav-dropdown-link">Featured APIs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="services.html" class="nav-link has-dropdown whitespace-nowrap">Services</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="services-details.html" class="nav-dropdown-link">Service Details</a></li>
+                            <li><a href="services.html" class="nav-dropdown-link">Custom Services</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html" class="nav-link whitespace-nowrap">Contact</a></li>
+                    <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <a href="dashboard.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Dashboard</a>
+                        <a href="login.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Login</a>
+                        <a href="register.html"
+                            class="px-4 py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold text-white">Sign
+                            Up</a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Toggle -->
+                <button id="mobileMenuButton"
+                    class="mobile-menu-toggle w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg bg-[#1E40AF]/10 border border-[#1E40AF]/30 text-[#0F172A] hover:bg-[#1E40AF]/20 transition-colors flex-shrink-0"
+                    aria-label="Toggle navigation" aria-expanded="false">
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="mobile-menu-overlay hidden fixed inset-0 z-[60] flex items-start justify-end">
+        <div
+            class="mobile-menu-content relative w-full sm:w-[75%] md:w-[50%] lg:w-[35%] h-[80vh] max-h-screen bg-white/95 backdrop-blur-2xl rounded-l-2xl border-l border-t border-b border-[#1E40AF]/30 shadow-2xl flex flex-col">
+            <button id="mobileMenuClose"
+                class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg bg-[#1E40AF]/10 border border-[#1E40AF]/30 text-[#0F172A] hover:bg-[#1E40AF]/20 transition-colors text-xl z-10">✕</button>
+
+            <ul class="w-full px-6 py-8 space-y-2 overflow-y-auto flex-1 text-center pb-20">
+                <li class="nav-item-dropdown">
+                    <a href="index.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Home</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="index.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Home</a></li>
+                        <li><a href="home2.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Home 2</a></li>
+                    
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="marketplace.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Marketplace</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                       
+                        <li><a href="api-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">API
+                                Details</a></li>
+                        <li><a href="marketplace.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Featured
+                                APIs</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="services.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Services</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="services-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Service
+                                Details</a></li>
+                        <li><a href="services.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Custom
+                                Services</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contact.html"
+                        class="block py-3 px-4 nav-link rounded-lg hover:bg-[#1E40AF]/10 transition-colors">Contact</a>
+                </li>
+
+                <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
+                    <a href="dashboard.html"
+                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold text-[#0F172A]">Dashboard</a>
+                    <a href="login.html"
+                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold">Login</a>
+                    <a href="register.html"
+                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform text-center font-semibold text-[#0F172A]">Sign
+                        Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-24 sm:pt-32 pb-8 sm:pb-12 md:pb-16 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="services-bg-pattern"></div>
+        </div>
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1
+                    class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold font-space-grotesk mb-6 services-title break-words">
+                    <span class="block">Our</span>
+                    <span
+                        class="block bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 bg-clip-text text-transparent">Services</span>
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed px-2">
+                    Comprehensive API solutions and services to power your applications
+                </p>
+                <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+                    <button
+                        class="px-5 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-xl font-semibold hover:shadow-2xl hover:shadow-amber-500/50 transform hover:scale-105 transition-all text-sm sm:text-base">
+                        Explore Services
+                    </button>
+                    <button
+                        class="px-5 py-2.5 sm:px-6 sm:py-3 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all text-sm sm:text-base">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Categories -->
+    <section class="sticky top-[60px] sm:top-20 z-40 backdrop-blur-xl bg-white/90 border-b border-amber-500/20">
+        <!-- Filter Toggle Button (Mobile Only) -->
+        <div class="md:hidden px-4 py-3">
+            <button id="serviceFilterToggle"
+                class="w-full flex items-center justify-between px-4 py-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl text-[#0F172A] hover:bg-white/20 transition-all">
+                <span class="flex items-center gap-2">
+                    <span>🔍</span>
+                    <span class="font-semibold">Filters</span>
+                </span>
+                <span id="serviceFilterToggleIcon" class="transition-transform">▼</span>
+            </button>
+        </div>
+        <!-- Filter Buttons Container -->
+        <div id="serviceFilterContainer" class="hidden md:block py-4 sm:py-6 md:py-8 overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="flex flex-wrap gap-3 sm:gap-4 justify-center">
+                    <button class="service-filter-btn active text-sm sm:text-base">All Services</button>
+                    <button class="service-filter-btn text-sm sm:text-base">API Integration</button>
+                    <button class="service-filter-btn text-sm sm:text-base">Analytics</button>
+                    <button class="service-filter-btn text-sm sm:text-base">Security</button>
+                    <button class="service-filter-btn text-sm sm:text-base">Support</button>
+                    <button class="service-filter-btn text-sm sm:text-base">Consulting</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-8 sm:py-12 md:py-16">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card-3d">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="service-icon-wrapper">
+                                    <div class="service-icon">🔌</div>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">API Integration (AI Assistant)</h3>
+                                <p class="text-[#1F2937] mb-6">
+                                    Seamless integration of APIs into your existing infrastructure with expert.
+                                </p>
+                                <ul class="space-y-2 mb-6 text-sm text-gray-300">
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Custom Integration</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>24/7 Support</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Documentation</span>
+                                    </li>
+                                </ul>
+                                <a href="services-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card-3d">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="service-icon-wrapper">
+                                    <div class="service-icon">📊</div>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">Analytics & Monitoring</h3>
+                                <p class="text-[#1F2937] mb-6">
+                                    Real-time analytics and monitoring solutions for your API usage and performance.
+                                </p>
+                                <ul class="space-y-2 mb-6 text-sm text-gray-300">
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Real-time Dashboards</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Custom Reports</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Alert System</span>
+                                    </li>
+                                </ul>
+                                <a href="services-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card-3d">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="service-icon-wrapper">
+                                    <div class="service-icon">🔒</div>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">Security & Compliance</h3>
+                                <p class="text-[#1F2937] mb-6">
+                                    Enterprise-grade security solutions to protect your API infrastructure from cyber threats.
+                                </p>
+                                <ul class="space-y-2 mb-6 text-sm text-gray-300">
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>SSL/TLS Encryption</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>GDPR Compliant</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Security Audits</span>
+                                    </li>
+                                </ul>
+                                <a href="services-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card-3d">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="service-icon-wrapper">
+                                    <div class="service-icon">💬</div>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">24/7 Support</h3>
+                                <p class="text-[#1F2937] mb-6">
+                                    Round-the-clock technical support from our expert team of API specialists to help
+                                    you with your API.
+                                </p>
+                                <ul class="space-y-2 mb-6 text-sm text-gray-300">
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Live Chat</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Email Support</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Priority Response</span>
+                                    </li>
+                                </ul>
+                                <a href="services-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card-3d">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="service-icon-wrapper">
+                                    <div class="service-icon">🚀</div>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">CDN Integration</h3>
+                                <p class="text-[#1F2937] mb-6">
+                                    Optimize your API performance with our advanced caching and CDN solutions to ensure fast and reliable API delivery.
+                                </p>
+                                <ul class="space-y-2 mb-6 text-sm text-gray-300">
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>CDN Integration</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Caching Strategy</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Load Balancing</span>
+                                    </li>
+                                </ul>
+                                <a href="services-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card-3d">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="service-icon-wrapper">
+                                    <div class="service-icon">🎓</div>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">Consulting & Training</h3>
+                                <p class="text-[#1F2937] mb-6">
+                                    Expert consulting and training services to help your team master API development and best practices.
+                                </p>
+                                <ul class="space-y-2 mb-6 text-sm text-gray-300">
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Custom Workshops</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Best Practices</span>
+                                    </li>
+                                    <li class="flex items-center justify-center space-x-2">
+                                        <span class="text-amber-400">✓</span>
+                                        <span>Architecture Review</span>
+                                    </li>
+                                </ul>
+                                <a href="services-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-20 md:py-24 relative">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="max-w-4xl mx-auto text-center services-cta-section">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 font-space-grotesk">
+                    <span class="block">the right services</span>
+                    <span class="block">for your needs</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-300 mb-8">Let our experts help you choose</p>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                    <button
+                        class="px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-xl text-sm sm:text-base md:text-lg font-semibold hover:shadow-2xl hover:shadow-amber-500/50 transform hover:scale-105 transition-all">
+                        <span class="block">Contact</span>
+                        <span class="block">Sales Team</span>
+                    </button>
+                    <button
+                        class="px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-white/10 backdrop-blur-lg rounded-xl text-sm sm:text-base md:text-lg font-semibold border border-white/20 hover:bg-white/20 transition-all">
+                        <span class="block">Schedule a</span>
+                        <span class="block">Demo</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-amber-500/20 relative">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg"></div>
+                        <span
+                            class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">APIHub</span>
+                    </div>
+                    <p class="text-[#1F2937] mb-4 max-w-md">
+                        Comprehensive API solutions and services to power your applications. Expert support and
+                        consulting available.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="Twitter">
+                            𝕏
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="GitHub">
+                            ⚡
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="LinkedIn">
+                            in
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="Discord">
+                            ◆
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="index.html" class="hover:text-[#0F172A] transition-colors">Home</a></li>
+                        <li><a href="marketplace.html" class="hover:text-[#0F172A] transition-colors">Marketplace</a></li>
+                        <li><a href="services.html" class="hover:text-[#0F172A] transition-colors">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Account</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="login.html" class="hover:text-[#0F172A] transition-colors">Login</a></li>
+                        <li><a href="register.html" class="hover:text-[#0F172A] transition-colors">Sign Up</a></li>
+                        <li><a href="dashboard.html" class="hover:text-[#0F172A] transition-colors">My Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-amber-500/20 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-[#1F2937] text-sm mb-4 md:mb-0">© 2025 APIHub. All rights reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm text-[#1F2937]">
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Contact Us</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

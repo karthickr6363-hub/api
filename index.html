@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Marketplace - Discover & Integrate APIs</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="font-inter bg-[#F8FAFC] text-[#0F172A] overflow-x-hidden">
+
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
+        <div class="w-full py-4 px-6">
+            <div class="flex items-center justify-between gap-4 min-w-0">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg rotate-3d"></div>
+                    <a href="index.html"
+                        class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent whitespace-nowrap">APIHub</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <ul
+                    class="desktop-menu hidden nav-menu items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 flex-1 justify-center min-w-0 list-none flex">
+                    <li class="nav-item-dropdown">
+                        <a href="index.html" class="nav-link has-dropdown whitespace-nowrap">Home</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="index.html" class="nav-dropdown-link">Home</a></li>
+                            <li><a href="home2.html" class="nav-dropdown-link">Home 2</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="marketplace.html" class="nav-link has-dropdown whitespace-nowrap">Marketplace</a>
+                        <ul class="nav-dropdown">
+                            
+                            <li><a href="api-details.html" class="nav-dropdown-link">API Details</a></li>
+                            <li><a href="marketplace.html" class="nav-dropdown-link">Featured APIs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="services.html" class="nav-link has-dropdown whitespace-nowrap">Services</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="services-details.html" class="nav-dropdown-link">Service Details</a></li>
+                            <li><a href="services.html" class="nav-dropdown-link">Custom Services</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html" class="nav-link whitespace-nowrap">Contact</a></li>
+                    <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <a href="dashboard.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Dashboard</a>
+                        <a href="login.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Login</a>
+                        <a href="register.html"
+                            class="px-4 py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold text-white">Sign
+                            Up</a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Toggle -->
+                <button id="mobileMenuButton"
+                    class="mobile-menu-toggle w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg bg-[#1E40AF]/10 border border-[#1E40AF]/30 text-[#0F172A] hover:bg-[#1E40AF]/20 transition-colors flex-shrink-0"
+                    aria-label="Toggle navigation" aria-expanded="false">
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="mobile-menu-overlay hidden fixed inset-0 z-[60] flex items-start justify-end">
+        <div
+            class="mobile-menu-content relative w-full sm:w-[75%] md:w-[50%] lg:w-[35%] h-[80vh] max-h-screen bg-white/95 backdrop-blur-2xl rounded-l-2xl border-l border-t border-b border-[#1E40AF]/30 shadow-2xl flex flex-col">
+            <button id="mobileMenuClose"
+                class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg bg-[#1E40AF]/10 border border-[#1E40AF]/30 text-[#0F172A] hover:bg-[#1E40AF]/20 transition-colors text-xl z-10">✕</button>
+
+            <ul class="w-full px-6 py-8 space-y-2 overflow-y-auto flex-1 text-center pb-20">
+                <li class="nav-item-dropdown">
+                    <a href="index.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Home</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="index.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Home</a></li>
+                        <li><a href="home2.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Home 2</a></li>
+                    
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="marketplace.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Marketplace</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                       
+                        <li><a href="api-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">API
+                                Details</a></li>
+                        <li><a href="marketplace.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Featured
+                                APIs</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="services.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Services</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="services-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Service
+                                Details</a></li>
+                        <li><a href="services.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Custom
+                                Services</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contact.html"
+                        class="block py-3 px-4 nav-link rounded-lg hover:bg-[#1E40AF]/10 transition-colors">Contact</a>
+                </li>
+
+                <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
+                    <a href="dashboard.html"
+                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold text-[#0F172A]">Dashboard</a>
+                    <a href="login.html"
+                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold">Login</a>
+                    <a href="register.html"
+                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform text-center font-semibold text-[#0F172A]">Sign
+                        Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section with 3D Effect -->
+    <section class="min-h-screen flex items-center justify-center relative pt-20 home-hero">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-5xl mx-auto">
+                <div class="mb-8 inline-block">
+                    <h1
+                        class="text-4xl md:text-6xl lg:text-7xl font-bold font-space-grotesk mb-4 hero-text-3d whitespace-nowrap">
+                        <span class="inline-block mr-3">Discover</span>
+                        <span
+                            class="inline-block bg-gradient-to-r from-[#1E40AF] via-[#22D3EE] to-[#1E40AF] bg-clip-text text-transparent">APIs</span>
+                    </h1>
+                </div>
+                <p class="text-xl md:text-2xl text-[#1F2937] mb-12 leading-relaxed">
+                    Connect to thousands of powerful APIs. Build faster. Scale effortlessly with our platform
+                    APIHub.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button
+                        class="px-8 py-4 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-xl text-lg font-semibold text-[#0F172A] hover:shadow-2xl hover:shadow-[#22D3EE]/50 transform hover:scale-105 transition-all duration-300 button-3d">
+                        Explore Marketplace
+                    </button>
+                    <button
+                        class="px-8 py-4 bg-[#1E40AF]/10 backdrop-blur-lg rounded-xl text-lg font-semibold border border-[#1E40AF]/20 hover:bg-[#1E40AF]/20 transition-all duration-300 text-[#0F172A]">
+                        Watch Demo
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3D Card Grid -->
+            <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="card-3d">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="text-4xl mb-4 text-[#1E40AF]"><i class="fas fa-rocket"></i></div>
+                                <h3 class="text-2xl font-bold mb-2">Fast Integration</h3>
+                                <p class="text-[#1F2937]">Get up and running in minutes</p>
+                                <p class="text-[#1F2937]">No credit card required</p>
+                                <p class="text-[#1F2937]">Free trial available</p>
+                                <p class="text-[#1F2937]">No hidden fees</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-3d">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="text-4xl mb-4 text-[#1E40AF]"><i class="fas fa-lock"></i></div>
+                                <h3 class="text-2xl font-bold mb-2">Secure & Reliable</h3>
+                                <p class="text-[#1F2937]">Enterprise-grade security</p>
+                                <p class="text-[#1F2937]">No credit card required</p>
+                                <p class="text-[#1F2937]">Free trial available</p>
+                                <p class="text-[#1F2937]">No hidden fees</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-3d">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="text-4xl mb-4 text-[#1E40AF]"><i class="fas fa-chart-bar"></i></div>
+                                <h3 class="text-2xl font-bold mb-2">Analytics Dashboard</h3>
+                                <p class="text-[#1F2937]">Track usage and performance
+                                <p class="text-[#1F2937]">No credit card required</p>
+                                <p class="text-[#1F2937]">Free trial available</p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 font-space-grotesk">Why Choose Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="feature-card">
+                    <div class="feature-icon text-[#1E40AF]"><i class="fas fa-bolt"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Lightning Fast</h3>
+                    <p class="text-[#1F2937]">Ultra-low latency API responses</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon text-[#1E40AF]"><i class="fas fa-globe"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Global CDN</h3>
+                    <p class="text-[#1F2937]">Worldwide content delivery</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon text-[#1E40AF]"><i class="fas fa-gem"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Premium APIs</h3>
+                    <p class="text-[#1F2937]">Curated high-quality services</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon text-[#1E40AF]"><i class="fas fa-bullseye"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Easy Docs</h3>
+                    <p class="text-[#1F2937]">Comprehensive documentation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab View Section -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 font-space-grotesk">Explore Our Platform</h2>
+
+            <!-- Tab Menu Toggle (Mobile) -->
+            <div class="md:hidden mb-6 flex justify-center relative">
+                <button id="tabMenuToggle"
+                    class="px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl text-[#0F172A] font-semibold hover:bg-[#1E40AF]/20 transition-all flex items-center gap-2"
+                    aria-label="Toggle tab menu" aria-expanded="false" aria-haspopup="true">
+                    <span id="activeTabName"><i class="fas fa-bolt mr-2"></i>Features</span>
+                    <span id="toggleIcon" class="transition-transform" aria-hidden="true">▼</span>
+                </button>
+                <!-- Mobile Tab Menu Dropdown -->
+                <div id="mobileTabMenu"
+                    class="hidden absolute z-50 top-full mt-2 left-1/2 transform -translate-x-1/2 w-64 bg-white/95 backdrop-blur-xl border border-[#1E40AF]/30 rounded-xl shadow-2xl overflow-hidden"
+                    role="menu" aria-labelledby="tabMenuToggle">
+                    <button class="tab-menu-item w-full text-left px-4 py-3 hover:bg-[#1E40AF]/10 transition-colors active"
+                        data-tab="features" role="menuitem">
+                        <span class="text-lg"><i class="fas fa-bolt mr-2"></i>Features</span>
+                    </button>
+                    <button class="tab-menu-item w-full text-left px-4 py-3 hover:bg-[#1E40AF]/10 transition-colors"
+                        data-tab="integrations" role="menuitem">
+                        <span class="text-lg"><i class="fas fa-plug mr-2"></i>Integrations</span>
+                    </button>
+                    <button class="tab-menu-item w-full text-left px-4 py-3 hover:bg-[#1E40AF]/10 transition-colors"
+                        data-tab="analytics" role="menuitem">
+                        <span class="text-lg"><i class="fas fa-chart-line mr-2"></i>Analytics</span>
+                    </button>
+                    <button class="tab-menu-item w-full text-left px-4 py-3 hover:bg-[#1E40AF]/10 transition-colors"
+                        data-tab="support" role="menuitem">
+                        <span class="text-lg"><i class="fas fa-comments mr-2"></i>Support</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Tab Menu -->
+            <div class="hidden md:flex justify-center mb-12 gap-4">
+                <button class="tab-btn active" data-tab="features">
+                    <i class="fas fa-bolt text-xl mr-2 text-[#1E40AF]"></i>
+                    Features
+                </button>
+                <button class="tab-btn" data-tab="integrations">
+                    <i class="fas fa-plug text-xl mr-2 text-[#1E40AF]"></i>
+                    Integrations
+                </button>
+                <button class="tab-btn" data-tab="analytics">
+                    <i class="fas fa-chart-line text-xl mr-2 text-[#1E40AF]"></i>
+                    Analytics
+                </button>
+                <button class="tab-btn" data-tab="support">
+                    <i class="fas fa-comments text-xl mr-2 text-[#1E40AF]"></i>
+                    Support
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="max-w-5xl mx-auto">
+                <!-- Features Tab -->
+                <div id="tab-features" class="tab-content active">
+                    <div class="tab-content-card">
+                        <h3 class="text-3xl font-bold mb-6 font-space-grotesk text-center">Powerful Features</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3 text-[#1E40AF]"><i class="fas fa-rocket"></i></div>
+                                <h4 class="text-xl font-semibold mb-2">Fast Performance</h4>
+                                <p class="text-[#1F2937]">Lightning-fast API responses with global CDN support</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3 text-[#1E40AF]"><i class="fas fa-shield-alt"></i></div>
+                                <h4 class="text-xl font-semibold mb-2">Enterprise Security</h4>
+                                <p class="text-[#1F2937]">Bank-level encryption and security protocols</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3">📈</div>
+                                <h4 class="text-xl font-semibold mb-2">Scalable Infrastructure</h4>
+                                <p class="text-[#1F2937]">Grow from startup to enterprise seamlessly</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3">⚙️</div>
+                                <h4 class="text-xl font-semibold mb-2">Easy Configuration</h4>
+                                <p class="text-[#1F2937]">Simple setup with comprehensive documentation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integrations Tab -->
+                <div id="tab-integrations" class="tab-content">
+                    <div class="tab-content-card">
+                        <h3 class="text-3xl font-bold mb-6 font-space-grotesk">Seamless Integrations</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3 text-[#1E40AF]"><i class="fas fa-credit-card"></i></div>
+                                <h4 class="text-xl font-semibold mb-2">Payment Gateways</h4>
+                                <p class="text-[#1F2937]">Stripe, PayPal, and 50+ payment providers</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3 text-[#1E40AF]"><i class="fas fa-envelope"></i></div>
+                                <h4 class="text-xl font-semibold mb-2">Email Services</h4>
+                                <p class="text-[#1F2937]">SendGrid, Mailchimp, and major email platforms</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3">🗄️</div>
+                                <h4 class="text-xl font-semibold mb-2">Database Connectors</h4>
+                                <p class="text-[#1F2937]">MongoDB, PostgreSQL, MySQL, and more</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3">☁️</div>
+                                <h4 class="text-xl font-semibold mb-2">Cloud Services</h4>
+                                <p class="text-[#1F2937]">AWS, Azure, GCP integration support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Tab -->
+                <div id="tab-analytics" class="tab-content">
+                    <div class="tab-content-card">
+                        <h3 class="text-3xl font-bold mb-6 font-space-grotesk">Advanced Analytics</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3 text-[#1E40AF]"><i class="fas fa-chart-bar"></i></div>
+                                <h4 class="text-xl font-semibold mb-2">Real-time Metrics</h4>
+                                <p class="text-[#1F2937]">Monitor API usage and performance in real-time</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3">📈</div>
+                                <h4 class="text-xl font-semibold mb-2">Usage Reports</h4>
+                                <p class="text-[#1F2937]">Detailed reports and insights for your APIs</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3 text-[#1E40AF]"><i class="fas fa-bullseye"></i></div>
+                                <h4 class="text-xl font-semibold mb-2">Custom Dashboards</h4>
+                                <p class="text-[#1F2937]">Build personalized dashboards for your needs</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3">🔔</div>
+                                <h4 class="text-xl font-semibold mb-2">Smart Alerts</h4>
+                                <p class="text-[#1F2937]">Get notified about important events and thresholds</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Tab -->
+                <div id="tab-support" class="tab-content">
+                    <div class="tab-content-card">
+                        <h3 class="text-3xl font-bold mb-6 font-space-grotesk">24/7 Support</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3">💬</div>
+                                <h4 class="text-xl font-semibold mb-2">Live Chat</h4>
+                                <p class="text-[#1F2937]">Get instant help from our support team</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3">📚</div>
+                                <h4 class="text-xl font-semibold mb-2">Documentation</h4>
+                                <p class="text-[#1F2937]">Comprehensive guides and tutorials</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3">🎓</div>
+                                <h4 class="text-xl font-semibold mb-2">Training Resources</h4>
+                                <p class="text-[#1F2937]">Video tutorials and webinars</p>
+                            </div>
+                            <div class="tab-feature-item">
+                                <div class="text-3xl mb-3">👥</div>
+                                <h4 class="text-xl font-semibold mb-2">Community Forum</h4>
+                                <p class="text-[#1F2937]">Connect with other developers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center cta-section">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 font-space-grotesk">
+                    <span class="block">Ready to Get</span>
+                    <span class="block">Started?</span>
+                </h2>
+                <p class="text-lg md:text-xl text-[#1F2937] mb-8">Join thousands of developers building amazing
+                    products
+                </p>
+                <a href="marketplace.html"
+                    class="inline-block px-6 py-3 md:px-10 md:py-5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-xl text-base md:text-lg font-semibold text-[#0F172A] hover:shadow-2xl hover:shadow-[#22D3EE]/50 transform hover:scale-105 transition-all duration-300">
+                    Browse Marketplace
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-[#1E40AF]/20 relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg"></div>
+                        <span
+                            class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent">APIHub</span>
+                    </div>
+                    <p class="text-[#1F2937] mb-4 max-w-md">
+                        Connect to thousands of powerful APIs. Build faster. Scale effortlessly. Join the future of
+                        API
+                        integration.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-[#1E40AF]/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-[#1E40AF]/20 transition-all text-[#1E40AF]"
+                            aria-label="Twitter">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-[#1E40AF]/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-[#1E40AF]/20 transition-all text-[#1E40AF]"
+                            aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-[#1E40AF]/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-[#1E40AF]/20 transition-all text-[#1E40AF]"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-[#1E40AF]/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-[#1E40AF]/20 transition-all text-[#1E40AF]"
+                            aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="index.html" class="hover:text-[#0F172A] transition-colors">Home</a></li>
+                        <li><a href="marketplace.html" class="hover:text-[#0F172A] transition-colors">Marketplace</a>
+                        </li>
+                        <li><a href="services.html" class="hover:text-[#0F172A] transition-colors">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Account</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="login.html" class="hover:text-[#0F172A] transition-colors">Login</a></li>
+                        <li><a href="register.html" class="hover:text-[#0F172A] transition-colors">Sign Up</a></li>
+                        <li><a href="dashboard.html" class="hover:text-[#0F172A] transition-colors">My Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-purple-500/20 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-[#1F2937] text-sm mb-4 md:mb-0">© 2025 APIHub. All rights reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm text-[#1F2937]">
+                        <a href="#" class="hover:text-[#1E40AF] transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-[#1E40AF] transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-[#1E40AF] transition-colors">Contact Us</a>
+                        <a href="#" class="hover:text-[#1E40AF] transition-colors">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

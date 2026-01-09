@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Marketplace - Browse APIs</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body
+    class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen overflow-x-hidden">
+
+      <!-- Navigation Header -->
+      <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
+        <div class="w-full py-4 px-6">
+            <div class="flex items-center justify-between gap-4 min-w-0">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg rotate-3d"></div>
+                    <a href="index.html"
+                        class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent whitespace-nowrap">APIHub</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <ul
+                    class="desktop-menu hidden nav-menu items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 flex-1 justify-center min-w-0 list-none flex">
+                    <li class="nav-item-dropdown">
+                        <a href="index.html" class="nav-link has-dropdown whitespace-nowrap">Home</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="index.html" class="nav-dropdown-link">Home</a></li>
+                            <li><a href="home2.html" class="nav-dropdown-link">Home 2</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="marketplace.html" class="nav-link has-dropdown whitespace-nowrap">Marketplace</a>
+                        <ul class="nav-dropdown">
+                            
+                            <li><a href="api-details.html" class="nav-dropdown-link">API Details</a></li>
+                            <li><a href="marketplace.html" class="nav-dropdown-link">Featured APIs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item-dropdown">
+                        <a href="services.html" class="nav-link has-dropdown whitespace-nowrap">Services</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="services-details.html" class="nav-dropdown-link">Service Details</a></li>
+                            <li><a href="services.html" class="nav-dropdown-link">Custom Services</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contact.html" class="nav-link whitespace-nowrap">Contact</a></li>
+                    <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <a href="dashboard.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Dashboard</a>
+                        <a href="login.html"
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Login</a>
+                        <a href="register.html"
+                            class="px-4 py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold text-white">Sign
+                            Up</a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Toggle -->
+                <button id="mobileMenuButton"
+                    class="mobile-menu-toggle w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg bg-[#1E40AF]/10 border border-[#1E40AF]/30 text-[#0F172A] hover:bg-[#1E40AF]/20 transition-colors flex-shrink-0"
+                    aria-label="Toggle navigation" aria-expanded="false">
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                    <span
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="mobile-menu-overlay hidden fixed inset-0 z-[60] flex items-start justify-end">
+        <div
+            class="mobile-menu-content relative w-full sm:w-[75%] md:w-[50%] lg:w-[35%] h-[80vh] max-h-screen bg-white/95 backdrop-blur-2xl rounded-l-2xl border-l border-t border-b border-[#1E40AF]/30 shadow-2xl flex flex-col">
+            <button id="mobileMenuClose"
+                class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg bg-[#1E40AF]/10 border border-[#1E40AF]/30 text-[#0F172A] hover:bg-[#1E40AF]/20 transition-colors text-xl z-10">✕</button>
+
+            <ul class="w-full px-6 py-8 space-y-2 overflow-y-auto flex-1 text-center pb-20">
+                <li class="nav-item-dropdown">
+                    <a href="index.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Home</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="index.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Home</a></li>
+                        <li><a href="home2.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Home 2</a></li>
+                    
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="marketplace.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Marketplace</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                       
+                        <li><a href="api-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">API
+                                Details</a></li>
+                        <li><a href="marketplace.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Featured
+                                APIs</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="services.html"
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-[#1E40AF]/10 transition-colors">
+                        <span>Services</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="services-details.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Service
+                                Details</a></li>
+                        <li><a href="services.html"
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-[#1E40AF]/10 rounded-lg transition-colors">Custom
+                                Services</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contact.html"
+                        class="block py-3 px-4 nav-link rounded-lg hover:bg-[#1E40AF]/10 transition-colors">Contact</a>
+                </li>
+
+                <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
+                    <a href="dashboard.html"
+                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold text-[#0F172A]">Dashboard</a>
+                    <a href="login.html"
+                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold">Login</a>
+                    <a href="register.html"
+                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform text-center font-semibold text-[#0F172A]">Sign
+                        Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-24 sm:pt-32 pb-8 sm:pb-12 md:pb-16 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="marketplace-bg-pattern"></div>
+        </div>
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1
+                    class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold font-space-grotesk mb-6 marketplace-title break-words">
+                    <span class="block">API</span>
+                    <span
+                        class="block bg-gradient-to-r from-[#1E40AF] via-[#22D3EE] to-[#1E40AF] bg-clip-text text-transparent">Marketplace</span>
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl text-[#1F2937] mb-8 px-2">Discover and integrate powerful APIs
+                    for your projects</p>
+                <div class="relative max-w-xl mx-auto px-2">
+                    <input type="text" placeholder="Search APIs..."
+                        class="w-full px-4 sm:px-6 pr-24 sm:pr-28 py-3 sm:py-4 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl text-[#0F172A] placeholder-gray-400 focus:outline-none focus:border-indigo-400 transition-all text-sm sm:text-base">
+                    <button
+                        class="absolute right-3 top-1/2 -translate-y-1/2 px-4 sm:px-6 py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg text-white hover:scale-105 transition-transform text-sm sm:text-base font-semibold shadow-md">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="sticky top-[60px] sm:top-20 z-40 backdrop-blur-xl bg-white/90 border-b border-[#1E40AF]/20">
+        <!-- Filter Toggle Button (Mobile Only) -->
+        <div class="md:hidden px-4 py-3">
+            <button id="filterToggle"
+                class="w-full flex items-center justify-between px-4 py-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl text-[#0F172A] hover:bg-white/20 transition-all">
+                <span class="flex items-center gap-2">
+                    <i class="fas fa-filter text-[#1E40AF]"></i>
+                    <span class="font-semibold">Filters</span>
+                </span>
+                <span id="filterToggleIcon" class="transition-transform">▼</span>
+            </button>
+        </div>
+        <!-- Filter Buttons Container -->
+        <div id="filterContainer" class="hidden md:block py-4 sm:py-6 md:py-8 overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="flex flex-wrap gap-3 sm:gap-4 justify-center">
+                    <button class="filter-btn active text-sm sm:text-base">All</button>
+                    <button class="filter-btn text-sm sm:text-base">Payment</button>
+                    <button class="filter-btn text-sm sm:text-base">AI/ML</button>
+                    <button class="filter-btn text-sm sm:text-base">Social</button>
+                    <button class="filter-btn text-sm sm:text-base">Data</button>
+                    <button class="filter-btn text-sm sm:text-base">Communication</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured APIs Section -->
+    <section class="pt-6 pb-12 sm:pt-8 sm:pb-16 md:pt-12 md:pb-20">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-space-grotesk mb-4">
+                    <span class="bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent">Featured APIs</span>
+                </h2>
+                <p class="text-lg text-[#1F2937] max-w-2xl mx-auto">Handpicked premium APIs trusted by thousands of developers worldwide</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+                <!-- Featured API Card 1 -->
+                <div class="api-card-3d">
+                    <div class="api-card-inner">
+                        <div class="api-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="relative flex items-center justify-center w-full mb-4">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-bolt text-2xl text-white"></i>
+                                    </div>
+                                    <span
+                                        class="absolute -top-2 -right-2 px-3 py-1 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] text-white rounded-full text-xs font-bold shadow-lg">FEATURED</span>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">Twilio Communication API</h3>
+                                <p class="text-[#1F2937] mb-4">Enterprise-grade messaging, voice, and video APIs</p>
+                                <div class="flex items-center justify-between w-full mb-4 text-sm">
+                                    <span class="text-[#1F2937]">By Twilio</span>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="font-semibold">5.0</span>
+                                    </div>
+                                </div>
+                                <div class="w-full mb-4">
+                                    <div class="flex items-center justify-center gap-2 text-xs text-[#1F2937]">
+                                        <span class="px-2 py-1 bg-[#1E40AF]/10 rounded">99.9% Uptime</span>
+                                        <span class="px-2 py-1 bg-[#22D3EE]/10 rounded">24/7 Support</span>
+                                    </div>
+                                </div>
+                                <a href="api-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-[#22D3EE]/50 transition-all">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured API Card 2 -->
+                <div class="api-card-3d">
+                    <div class="api-card-inner">
+                        <div class="api-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="relative flex items-center justify-center w-full mb-4">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-fire text-2xl text-white"></i>
+                                    </div>
+                                    <span
+                                        class="absolute -top-2 -right-2 px-3 py-1 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] text-white rounded-full text-xs font-bold shadow-lg">TRENDING</span>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">AWS Cloud Services API</h3>
+                                <p class="text-[#1F2937] mb-4">Comprehensive cloud infrastructure and services</p>
+                                <div class="flex items-center justify-between w-full mb-4 text-sm">
+                                    <span class="text-[#1F2937]">By Amazon Web Services</span>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="font-semibold">4.9</span>
+                                    </div>
+                                </div>
+                                <div class="w-full mb-4">
+                                    <div class="flex items-center justify-center gap-2 text-xs text-[#1F2937]">
+                                        <span class="px-2 py-1 bg-[#1E40AF]/10 rounded">Global CDN</span>
+                                        <span class="px-2 py-1 bg-[#22D3EE]/10 rounded">Auto-Scale</span>
+                                    </div>
+                                </div>
+                                <a href="api-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-[#22D3EE]/50 transition-all">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured API Card 3 -->
+                <div class="api-card-3d">
+                    <div class="api-card-inner">
+                        <div class="api-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="relative flex items-center justify-center w-full mb-4">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-trophy text-2xl text-white"></i>
+                                    </div>
+                                    <span
+                                        class="absolute -top-2 -right-2 px-3 py-1 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] text-white rounded-full text-xs font-bold shadow-lg">PREMIUM</span>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">Stripe Payment Gateway</h3>
+                                <p class="text-[#1F2937] mb-4">World's leading payment processing platform</p>
+                                <div class="flex items-center justify-between w-full mb-4 text-sm">
+                                    <span class="text-[#1F2937]">By Stripe Inc.</span>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span class="font-semibold">5.0</span>
+                                    </div>
+                                </div>
+                                <div class="w-full mb-4">
+                                    <div class="flex items-center justify-center gap-2 text-xs text-[#1F2937]">
+                                        <span class="px-2 py-1 bg-[#1E40AF]/10 rounded">PCI Compliant</span>
+                                        <span class="px-2 py-1 bg-[#22D3EE]/10 rounded">150+ Countries</span>
+                                    </div>
+                                </div>
+                                <a href="api-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-[#22D3EE]/50 transition-all">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse APIs Section -->
+    <section class="pt-6 pb-12 sm:pt-8 sm:pb-16 md:pt-12 md:pb-20">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-space-grotesk mb-4">
+                    <span class="text-[#0F172A]">Browse All APIs</span>
+                </h2>
+                <p class="text-lg text-[#1F2937] max-w-2xl mx-auto">Explore our complete collection of APIs across all categories</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- API Card 1 -->
+                <div class="api-card-3d">
+                    <div class="api-card-inner">
+                        <div class="api-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="relative flex items-center justify-center w-full mb-4">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-credit-card text-2xl text-white"></i>
+                                    </div>
+                                    <span
+                                        class="absolute right-0 px-3 py-1 bg-[#1E40AF]/20 text-[#1E40AF] rounded-full text-sm font-semibold">Popular</span>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">Stripe Payment API</h3>
+                                <p class="text-[#1F2937] mb-4">Secure payment processing for your applications</p>
+                                <div class="flex items-center justify-between w-full mb-4 text-sm">
+                                    <span class="text-[#1F2937]">By Stripe Inc.</span>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>4.9</span>
+                                    </div>
+                                </div>
+                                <a href="api-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-[#22D3EE]/50 transition-all">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Card 2 -->
+                <div class="api-card-3d">
+                    <div class="api-card-inner">
+                        <div class="api-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="relative flex items-center justify-center w-full mb-4">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-robot text-2xl text-white"></i>
+                                    </div>
+                                    <span
+                                        class="absolute right-0 px-3 py-1 bg-[#22D3EE]/20 text-[#22D3EE] rounded-full text-sm font-semibold">AI</span>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">OpenAI GPT API</h3>
+                                <p class="text-[#1F2937] mb-4">Advanced AI language models for your apps</p>
+                                <div class="flex items-center justify-between w-full mb-4 text-sm">
+                                    <span class="text-[#1F2937]">By OpenAI</span>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>4.8</span>
+                                    </div>
+                                </div>
+                                <a href="api-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-[#22D3EE]/50 transition-all">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Card 3 -->
+                <div class="api-card-3d">
+                    <div class="api-card-inner">
+                        <div class="api-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="relative flex items-center justify-center w-full mb-4">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-envelope text-2xl text-white"></i>
+                                    </div>
+                                    <span
+                                        class="absolute right-0 px-3 py-1 bg-[#1E40AF]/20 text-[#1E40AF] rounded-full text-sm font-semibold">New</span>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">SendGrid Email API</h3>
+                                <p class="text-[#1F2937] mb-4">Reliable email delivery service for your applications</p>
+                                <div class="flex items-center justify-between w-full mb-4 text-sm">
+                                    <span class="text-[#1F2937]">By Twilio</span>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>4.7</span>
+                                    </div>
+                                </div>
+                                <a href="api-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-[#22D3EE]/50 transition-all">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Card 4 -->
+                <div class="api-card-3d">
+                    <div class="api-card-inner">
+                        <div class="api-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="relative flex items-center justify-center w-full mb-4">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-map-marked-alt text-2xl text-white"></i>
+                                    </div>
+                                    <span
+                                        class="absolute right-0 px-3 py-1 bg-[#22D3EE]/20 text-[#22D3EE] rounded-full text-sm font-semibold">Maps</span>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">Google Maps API</h3>
+                                <p class="text-[#1F2937] mb-4">Location services and mapping solutions</p>
+                                <div class="flex items-center justify-between w-full mb-4 text-sm">
+                                    <span class="text-[#1F2937]">By Google</span>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>4.9</span>
+                                    </div>
+                                </div>
+                                <a href="api-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-[#22D3EE]/50 transition-all">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Card 5 -->
+                <div class="api-card-3d">
+                    <div class="api-card-inner">
+                        <div class="api-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="relative flex items-center justify-center w-full mb-4">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-chart-line text-2xl text-white"></i>
+                                    </div>
+                                    <span
+                                        class="absolute right-0 px-3 py-1 bg-[#1E40AF]/20 text-[#1E40AF] rounded-full text-sm font-semibold">Analytics</span>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">Analytics Pro API</h3>
+                                <p class="text-[#1F2937] mb-4">Advanced analytics and data insights</p>
+                                <div class="flex items-center justify-between w-full mb-4 text-sm">
+                                    <span class="text-[#1F2937]">By DataCorp</span>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>4.6</span>
+                                    </div>
+                                </div>
+                                <a href="api-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-[#22D3EE]/50 transition-all">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Card 6 -->
+                <div class="api-card-3d">
+                    <div class="api-card-inner">
+                        <div class="api-card-front">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="relative flex items-center justify-center w-full mb-4">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-shield-alt text-2xl text-white"></i>
+                                    </div>
+                                    <span
+                                        class="absolute right-0 px-3 py-1 bg-[#22D3EE]/20 text-[#22D3EE] rounded-full text-sm font-semibold">Security</span>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2">AuthGuard API</h3>
+                                <p class="text-[#1F2937] mb-4">Enterprise authentication & Edge Computing</p>
+                                <div class="flex items-center justify-between w-full mb-4 text-sm">
+                                    <span class="text-[#1F2937]">By SecureAuth</span>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-star text-yellow-400"></i>
+                                        <span>4.8</span>
+                                    </div>
+                                </div>
+                                <a href="api-details.html"
+                                    class="block w-full text-center py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-[#22D3EE]/50 transition-all">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-[#1E40AF]/20 mt-16 relative">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg"></div>
+                        <span
+                            class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">APIHub</span>
+                    </div>
+                    <p class="text-[#1F2937] mb-4 max-w-md">
+                        Discover and integrate powerful APIs for your projects. Browse our curated collection of
+                        high-quality APIs.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="Twitter">
+                            𝕏
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="GitHub">
+                            ⚡
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="LinkedIn">
+                            in
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                            aria-label="Discord">
+                            ◆
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="index.html" class="hover:text-[#0F172A] transition-colors">Home</a></li>
+                        <li><a href="marketplace.html" class="hover:text-[#0F172A] transition-colors">Marketplace</a></li>
+                        <li><a href="services.html" class="hover:text-[#0F172A] transition-colors">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Account</h3>
+                    <ul class="space-y-2 text-[#1F2937]">
+                        <li><a href="login.html" class="hover:text-[#0F172A] transition-colors">Login</a></li>
+                        <li><a href="register.html" class="hover:text-[#0F172A] transition-colors">Sign Up</a></li>
+                        <li><a href="dashboard.html" class="hover:text-[#0F172A] transition-colors">My Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-[#1E40AF]/20 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-[#1F2937] text-sm mb-4 md:mb-0">© 2025 APIHub. All rights reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm text-[#1F2937]">
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Contact Us</a>
+                        <a href="#" class="hover:text-[#0F172A] transition-colors">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

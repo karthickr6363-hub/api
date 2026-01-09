@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - APIHub</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen flex items-center justify-center relative overflow-x-hidden py-20">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="register-bg-shape shape-1"></div>
+        <div class="register-bg-shape shape-2"></div>
+        <div class="register-bg-shape shape-3"></div>
+        <div class="register-bg-shape shape-4"></div>
+    </div>
+
+    <!-- Register Card -->
+    <div class="relative z-10 w-full max-w-lg px-6">
+        <div class="register-card-3d">
+            <div class="register-card-inner">
+                <div class="register-card-front">
+                    <!-- Brand Logo -->
+                    <a href="index.html" class="flex items-center justify-center space-x-2 mb-6 hover:opacity-80 transition-opacity cursor-pointer">
+                        <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg transform rotate-3d"></div>
+                        <span class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent">APIHub</span>
+                    </a>
+                    <!-- Header -->
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-2xl flex items-center justify-center mx-auto mb-4 transform hover:rotate-12 transition-transform">
+                            <i class="fas fa-user-plus text-4xl text-white"></i>
+                        </div>
+                        <h1 class="text-4xl font-bold font-space-grotesk mb-2">Create Account</h1>
+                        <p class="text-[#1F2937]">Join thousands of developers building amazing products</p>
+                    </div>
+
+                    <!-- Register Form -->
+                    <form id="registerForm" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div class="form-group">
+                                <label for="firstName" class="block text-sm font-semibold mb-2">First Name</label>
+                                <div class="input-wrapper">
+                                    <input 
+                                        type="text" 
+                                        id="firstName" 
+                                        name="firstName" 
+                                        placeholder="John" 
+                                        required
+                                        class="register-input"
+                                    >
+                                    <i class="input-icon fas fa-user text-[#1E40AF]"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName" class="block text-sm font-semibold mb-2">Last Name</label>
+                                <div class="input-wrapper">
+                                    <input 
+                                        type="text" 
+                                        id="lastName" 
+                                        name="lastName" 
+                                        placeholder="Doe" 
+                                        required
+                                        class="register-input"
+                                    >
+                                    <i class="input-icon fas fa-user text-[#1E40AF]"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regEmail" class="block text-sm font-semibold mb-2">Email Address</label>
+                            <div class="input-wrapper">
+                                <input 
+                                    type="email" 
+                                    id="regEmail" 
+                                    name="email" 
+                                    placeholder="you@example.com" 
+                                    required
+                                    class="register-input"
+                                >
+                                <i class="input-icon fas fa-envelope text-[#1E40AF]"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regPassword" class="block text-sm font-semibold mb-2">Password</label>
+                            <div class="input-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="regPassword" 
+                                    name="password" 
+                                    placeholder="••••••••" 
+                                    required
+                                    class="register-input"
+                                    minlength="8"
+                                >
+                                <i class="input-icon fas fa-lock text-[#1E40AF]"></i>
+                                <button type="button" class="password-toggle" onclick="toggleRegPassword()">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">Must be at least 8 characters</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword" class="block text-sm font-semibold mb-2">Confirm Password</label>
+                            <div class="input-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="confirmPassword" 
+                                    name="confirmPassword" 
+                                    placeholder="••••••••" 
+                                    required
+                                    class="register-input"
+                                >
+                                <i class="input-icon fas fa-lock text-[#1E40AF]"></i>
+                                <button type="button" class="password-toggle" onclick="toggleConfirmPassword()">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-2">
+                            <input type="checkbox" id="terms" required class="terms-checkbox">
+                            <label for="terms" class="text-sm text-[#1F2937] cursor-pointer">
+                                I agree to the 
+                                <a href="#" class="text-rose-400 hover:text-rose-300">Terms of Service</a> 
+                                and 
+                                <a href="#" class="text-rose-400 hover:text-rose-300">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="register-submit-btn">
+                            <span>Create Account</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </form>
+
+                    <!-- Divider -->
+                    <div class="flex items-center my-8">
+                        <div class="flex-1 border-t border-gray-700"></div>
+                        <span class="px-4 text-sm text-gray-500">or</span>
+                        <div class="flex-1 border-t border-gray-700"></div>
+                    </div>
+
+                    <!-- Social Register -->
+                    <div class="space-y-3">
+                        <button class="social-register-btn google">
+                            <span>🔍</span>
+                            <span>Sign up with Google</span>
+                        </button>
+                        <button class="social-register-btn github">
+                            <span>🐙</span>
+                            <span>Sign up with GitHub</span>
+                        </button>
+                    </div>
+
+                    <!-- Sign In Link -->
+                    <div class="mt-8 text-center">
+                        <p class="text-[#1F2937]">
+                            Already have an account? 
+                            <a href="login.html" class="text-rose-400 hover:text-rose-300 font-semibold transition-colors">Sign in</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function toggleRegPassword() {
+            const passwordInput = document.getElementById('regPassword');
+            const toggleBtn = document.querySelectorAll('.password-toggle')[0];
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        }
+
+        function toggleConfirmPassword() {
+            const passwordInput = document.getElementById('confirmPassword');
+            const toggleBtn = document.querySelectorAll('.password-toggle')[1];
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            // Add your registration logic here
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
+
