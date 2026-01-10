@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen">
+<body class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen" data-theme="light">
 
      <!-- Navigation Header -->
      <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
@@ -59,10 +59,15 @@
 
                     <li><a href="contact.html" class="nav-link whitespace-nowrap">Contact</a></li>
                     <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                            <span class="theme-toggle-slider">
+                                <span class="theme-toggle-icon">🌙</span>
+                            </span>
+                        </button>
                         <a href="dashboard.html"
-                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Dashboard</a>
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A] dark-mode-text">Dashboard</a>
                         <a href="login.html"
-                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Login</a>
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A] dark-mode-text">Login</a>
                         <a href="register.html"
                             class="px-4 py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold text-white">Sign
                             Up</a>
@@ -142,12 +147,17 @@
                 </li>
 
                 <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
+                    <button id="themeToggleMobile" class="theme-toggle mb-2" aria-label="Toggle dark mode" title="Toggle dark mode">
+                        <span class="theme-toggle-slider">
+                            <span class="theme-toggle-icon">🌙</span>
+                        </span>
+                    </button>
                     <a href="dashboard.html"
-                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold text-[#0F172A]">Dashboard</a>
+                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold text-[#0F172A] dark-mode-text">Dashboard</a>
                     <a href="login.html"
-                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold">Login</a>
+                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold dark-mode-text">Login</a>
                     <a href="register.html"
-                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform text-center font-semibold text-[#0F172A]">Sign
+                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform text-center font-semibold text-white">Sign
                         Up</a>
                 </li>
             </ul>
@@ -166,7 +176,7 @@
                     <span
                         class="block bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">Touch</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                <p class="text-xl md:text-2xl text-[#1F2937] mb-8 leading-relaxed">
                     We're here to help! Reach out to us for any questions, support, or inquiries.
                 </p>
             </div>
@@ -360,7 +370,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-gray-300">Getting started is easy! Simply create an account, browse our
+                            <p class="text-[#1F2937]">Getting started is easy! Simply create an account, browse our
                                 marketplace, and select the APIs you need. Our team is available 24/7 to help with
                                 integration.</p>
                         </div>
@@ -371,7 +381,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-gray-300">We accept all major credit cards, PayPal, and bank transfers.
+                            <p class="text-[#1F2937]">We accept all major credit cards, PayPal, and bank transfers.
                                 Enterprise customers can also set up invoicing.</p>
                         </div>
                     </div>
@@ -381,7 +391,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-gray-300">Yes! We offer 24/7 technical support via email, live chat, and
+                            <p class="text-[#1F2937]">Yes! We offer 24/7 technical support via email, live chat, and
                                 phone. Premium plans include priority support with faster response times.</p>
                         </div>
                     </div>
@@ -391,7 +401,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-gray-300">Absolutely! You can integrate as many APIs as you need. Our
+                            <p class="text-[#1F2937]">Absolutely! You can integrate as many APIs as you need. Our
                                 platform is designed to handle multiple API integrations seamlessly.</p>
                         </div>
                     </div>

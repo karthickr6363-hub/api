@@ -17,7 +17,7 @@
 </head>
 
 <body
-    class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen overflow-x-hidden">
+    class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen overflow-x-hidden" data-theme="light">
 
     <!-- Navigation Header -->
     <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
@@ -38,6 +38,11 @@
                     
                     <!-- User Profile & Logout (Desktop) -->
                     <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                            <span class="theme-toggle-slider">
+                                <span class="theme-toggle-icon">🌙</span>
+                            </span>
+                        </button>
                         <div
                             class="flex items-center gap-2 px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg">
                             <div
@@ -94,8 +99,16 @@
 
 
 
-                <!-- Logout Button (Mobile) -->
+                <!-- Theme Toggle (Mobile) -->
                 <li class="pt-4 border-t border-white/10 pb-4">
+                    <button id="themeToggleMobile" class="theme-toggle w-full mb-3" aria-label="Toggle dark mode" title="Toggle dark mode">
+                        <span class="theme-toggle-slider">
+                            <span class="theme-toggle-icon">🌙</span>
+                        </span>
+                    </button>
+                </li>
+                <!-- Logout Button (Mobile) -->
+                <li class="pb-4">
                     <a href="index.html"
                         class="inline-block py-3 px-6 bg-red-500/10 border border-red-500/30 rounded-lg hover:bg-red-500/20 transition-all text-center font-semibold text-red-400 w-full">
                         Logout
@@ -106,7 +119,7 @@
     </div>
 
     <!-- Dashboard Content -->
-    <div class="pt-20 sm:pt-24 pb-12 sm:pb-16 flex">
+    <div class="pt-20 sm:pt-24 pb-12 sm:pb-16 flex overflow-x-hidden">
         <!-- Side Navigation -->
         <aside id="dashboardSidebar" class="dashboard-sidebar fixed lg:static inset-y-0 left-0 z-40 w-64 bg-white/95 backdrop-blur-xl border-r-2 border-[#1E40AF]/30 shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 -translate-x-full">
             <div class="h-full flex flex-col">
@@ -242,8 +255,8 @@
         <div id="sidebarOverlay" class="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-30 opacity-0 invisible transition-opacity duration-300"></div>
 
         <!-- Main Content Area -->
-        <div class="flex-1 transition-all duration-300">
-            <div class="container mx-auto px-4 sm:px-6">
+        <div class="flex-1 transition-all duration-300 overflow-x-hidden">
+            <div class="container mx-auto px-4 sm:px-6 max-w-full">
                 <!-- Sidebar Toggle Button (Mobile) -->
                 <button id="sidebarToggle" class="lg:hidden fixed top-24 left-4 z-50 w-12 h-12 bg-white/95 backdrop-blur-xl border-2 border-[#1E40AF]/30 rounded-lg shadow-lg flex items-center justify-center text-[#0F172A] hover:bg-white transition-all">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -251,10 +264,10 @@
                     </svg>
                 </button>
             <!-- Header -->
-            <div class="mb-6 sm:mb-8">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-space-grotesk mb-2 dashboard-title">Dashboard
+            <div class="mb-6 sm:mb-8 pl-16 sm:pl-20 lg:pl-0">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-space-grotesk mb-2 dashboard-title break-words">Dashboard
                 </h1>
-                <p class="text-[#1F2937] text-base sm:text-lg">Welcome back! Here's your API usage overview</p>
+                <p class="text-[#1F2937] text-sm sm:text-base lg:text-lg break-words">Welcome back! Here's your API usage overview</p>
             </div>
 
             <!-- Stats Cards -->
@@ -388,15 +401,15 @@
             </div>
 
             <!-- API Keys Section -->
-            <div class="dashboard-keys-card mb-6 sm:mb-8">
+            <div class="dashboard-keys-card mb-6 sm:mb-8 max-w-full">
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4 sm:mb-6">
-                    <h2 class="text-xl sm:text-2xl font-bold font-space-grotesk">API Keys</h2>
+                    <h2 class="text-xl sm:text-2xl font-bold font-space-grotesk break-words">API Keys</h2>
                     <button
-                        class="px-4 py-2 sm:px-6 sm:py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transform hover:scale-105 transition-all text-sm sm:text-base">
+                        class="px-4 py-2 sm:px-6 sm:py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transform hover:scale-105 transition-all text-sm sm:text-base whitespace-nowrap">
                         Generate New Key
                     </button>
                 </div>
-                <div class="overflow-x-auto -mx-4 sm:mx-0">
+                <div class="overflow-x-auto w-full">
                     <table class="w-full min-w-[600px]">
                         <thead>
                             <tr class="border-b border-white/10">
@@ -526,7 +539,7 @@
                     </button>
                     <!-- Mobile Tab Menu Dropdown -->
                     <div id="mobileTabMenu"
-                        class="hidden absolute z-50 top-full mt-2 left-1/2 transform -translate-x-1/2 w-72 bg-slate-900/95 backdrop-blur-xl border border-[#1E40AF]/30 rounded-xl shadow-2xl overflow-hidden"
+                        class="hidden absolute z-50 top-full mt-2 left-1/2 transform -translate-x-1/2 w-[calc(100vw-2rem)] max-w-72 bg-slate-900/95 backdrop-blur-xl border border-[#1E40AF]/30 rounded-xl shadow-2xl overflow-hidden"
                         role="menu" aria-labelledby="tabMenuToggle">
                         <!-- Navigation Pages Section -->
                         <div class="border-b border-white/10">
@@ -640,7 +653,7 @@
                     <div id="tab-overview" class="tab-content active">
                         <div class="tab-content-card">
                             <h3 class="text-2xl font-bold mb-4 font-space-grotesk">Overview</h3>
-                            <p class="text-gray-300 mb-6">Get a comprehensive view of your API usage and performance
+                            <p class="text-[#1F2937] mb-6">Get a comprehensive view of your API usage and performance
                                 metrics.</p>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="bg-white/5 rounded-lg p-4 border border-white/10">
@@ -661,7 +674,7 @@
                     <div id="tab-analytics" class="tab-content">
                         <div class="tab-content-card">
                             <h3 class="text-2xl font-bold mb-4 font-space-grotesk">Analytics</h3>
-                            <p class="text-gray-300 mb-6">Detailed analytics and insights into your API performance.</p>
+                            <p class="text-[#1F2937] mb-6">Detailed analytics and insights into your API performance.</p>
                             <div class="space-y-4">
                                 <div class="bg-white/5 rounded-lg p-4 border border-white/10">
                                     <h4 class="font-semibold mb-2">Response Time</h4>
@@ -681,7 +694,7 @@
                     <div id="tab-settings" class="tab-content">
                         <div class="tab-content-card">
                             <h3 class="text-2xl font-bold mb-4 font-space-grotesk">Settings</h3>
-                            <p class="text-gray-300 mb-6">Manage your account settings and preferences.</p>
+                            <p class="text-[#1F2937] mb-6">Manage your account settings and preferences.</p>
                             <div class="space-y-4">
                                 <div class="bg-white/5 rounded-lg p-4 border border-white/10">
                                     <h4 class="font-semibold mb-2">Notifications</h4>
@@ -707,7 +720,7 @@
                     <div id="tab-billing" class="tab-content">
                         <div class="tab-content-card">
                             <h3 class="text-2xl font-bold mb-4 font-space-grotesk">Billing</h3>
-                            <p class="text-gray-300 mb-6">View and manage your billing information and subscription.</p>
+                            <p class="text-[#1F2937] mb-6">View and manage your billing information and subscription.</p>
                             <div class="space-y-4">
                                 <div class="bg-white/5 rounded-lg p-4 border border-white/10">
                                     <h4 class="font-semibold mb-2">Current Plan</h4>

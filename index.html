@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="font-inter bg-[#F8FAFC] text-[#0F172A] overflow-x-hidden">
+<body class="font-inter bg-[#F8FAFC] text-[#0F172A] overflow-x-hidden" data-theme="light">
 
     <!-- Navigation Header -->
     <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
@@ -59,10 +59,15 @@
 
                     <li><a href="contact.html" class="nav-link whitespace-nowrap">Contact</a></li>
                     <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                            <span class="theme-toggle-slider">
+                                <span class="theme-toggle-icon">🌙</span>
+                            </span>
+                        </button>
                         <a href="dashboard.html"
-                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Dashboard</a>
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A] dark-mode-text">Dashboard</a>
                         <a href="login.html"
-                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Login</a>
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A] dark-mode-text">Login</a>
                         <a href="register.html"
                             class="px-4 py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold text-white">Sign
                             Up</a>
@@ -139,6 +144,15 @@
 
                 <li><a href="contact.html"
                         class="block py-3 px-4 nav-link rounded-lg hover:bg-[#1E40AF]/10 transition-colors">Contact</a>
+                </li>
+
+                <!-- Theme Toggle (Mobile) -->
+                <li class="pt-4 pb-4 border-t border-[#1E40AF]/20 flex flex-col items-center">
+                    <button id="themeToggleMobile" class="theme-toggle mb-2" aria-label="Toggle dark mode" title="Toggle dark mode">
+                        <span class="theme-toggle-slider">
+                            <span class="theme-toggle-icon">🌙</span>
+                        </span>
+                    </button>
                 </li>
 
                 <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
@@ -461,77 +475,77 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="py-12 border-t border-[#1E40AF]/20 relative">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg"></div>
-                        <span
-                            class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent">APIHub</span>
-                    </div>
-                    <p class="text-[#1F2937] mb-4 max-w-md">
-                        Connect to thousands of powerful APIs. Build faster. Scale effortlessly. Join the future of
-                        API
-                        integration.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#"
-                            class="w-10 h-10 bg-[#1E40AF]/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-[#1E40AF]/20 transition-all text-[#1E40AF]"
-                            aria-label="Twitter">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-[#1E40AF]/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-[#1E40AF]/20 transition-all text-[#1E40AF]"
-                            aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-[#1E40AF]/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-[#1E40AF]/20 transition-all text-[#1E40AF]"
-                            aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-[#1E40AF]/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-[#1E40AF]/20 transition-all text-[#1E40AF]"
-                            aria-label="Discord">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                    </div>
+ <!-- Footer -->
+ <footer class="py-12 border-t border-[#1E40AF]/20 relative">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-2 mb-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg"></div>
+                    <span
+                        class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent">APIHub</span>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2 text-[#1F2937]">
-                        <li><a href="index.html" class="hover:text-[#0F172A] transition-colors">Home</a></li>
-                        <li><a href="marketplace.html" class="hover:text-[#0F172A] transition-colors">Marketplace</a>
-                        </li>
-                        <li><a href="services.html" class="hover:text-[#0F172A] transition-colors">Services</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Account</h3>
-                    <ul class="space-y-2 text-[#1F2937]">
-                        <li><a href="login.html" class="hover:text-[#0F172A] transition-colors">Login</a></li>
-                        <li><a href="register.html" class="hover:text-[#0F172A] transition-colors">Sign Up</a></li>
-                        <li><a href="dashboard.html" class="hover:text-[#0F172A] transition-colors">My Dashboard</a>
-                        </li>
-                    </ul>
+                <p class="text-[#1F2937] mb-4 max-w-md">
+                    Connect to thousands of powerful APIs. Build faster. Scale effortlessly. Join the future of
+                    API
+                    integration.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#"
+                        class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                        aria-label="Twitter">
+                        𝕏
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                        aria-label="GitHub">
+                        ⚡
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                        aria-label="LinkedIn">
+                        in
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 bg-white/10 backdrop-blur-lg rounded-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                        aria-label="Discord">
+                        ◆
+                    </a>
                 </div>
             </div>
-            <div class="border-t border-purple-500/20 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-[#1F2937] text-sm mb-4 md:mb-0">© 2025 APIHub. All rights reserved.</p>
-                    <div class="flex flex-wrap justify-center gap-6 text-sm text-[#1F2937]">
-                        <a href="#" class="hover:text-[#1E40AF] transition-colors">Privacy Policy</a>
-                        <a href="#" class="hover:text-[#1E40AF] transition-colors">Terms of Service</a>
-                        <a href="#" class="hover:text-[#1E40AF] transition-colors">Contact Us</a>
-                        <a href="#" class="hover:text-[#1E40AF] transition-colors">Support</a>
-                    </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-[#1F2937]">
+                    <li><a href="index.html" class="hover:text-[#0F172A] transition-colors">Home</a></li>
+                    <li><a href="home2.html" class="hover:text-[#0F172A] transition-colors">Home 2</a></li>
+                    <li><a href="marketplace.html" class="hover:text-[#0F172A] transition-colors">Marketplace</a>
+                    </li>
+                    <li><a href="services.html" class="hover:text-[#0F172A] transition-colors">Services</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Account</h3>
+                <ul class="space-y-2 text-[#1F2937]">
+                    <li><a href="login.html" class="hover:text-[#0F172A] transition-colors">Login</a></li>
+                    <li><a href="register.html" class="hover:text-[#0F172A] transition-colors">Sign Up</a></li>
+                    <li><a href="dashboard.html" class="hover:text-[#0F172A] transition-colors">My Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-[#1E40AF]/20 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-[#1F2937] text-sm mb-4 md:mb-0">© 2025 APIHub. All rights reserved.</p>
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-[#1F2937]">
+                    <a href="#" class="hover:text-[#0F172A] transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-[#0F172A] transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-[#0F172A] transition-colors">Contact Us</a>
+                    <a href="#" class="hover:text-[#0F172A] transition-colors">Support</a>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <script src="js/main.js"></script>
 </body>

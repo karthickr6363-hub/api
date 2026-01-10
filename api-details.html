@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen">
+<body class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen" data-theme="light">
 
     <!-- Navigation Header -->
     <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
@@ -26,7 +26,7 @@
                 <div class="flex items-center space-x-2 flex-shrink-0">
                     <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg rotate-3d"></div>
                     <a href="index.html"
-                        class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF]-400 to-[#22D3EE]-400 bg-clip-text text-transparent whitespace-nowrap">APIHub</a>
+                        class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent whitespace-nowrap">APIHub</a>
                 </div>
 
                 <!-- Desktop Menu -->
@@ -43,7 +43,6 @@
                     <li class="nav-item-dropdown">
                         <a href="marketplace.html" class="nav-link has-dropdown whitespace-nowrap">Marketplace</a>
                         <ul class="nav-dropdown">
-                            <li><a href="marketplace.html" class="nav-dropdown-link">Browse APIs</a></li>
                             <li><a href="api-details.html" class="nav-dropdown-link">API Details</a></li>
                             <li><a href="marketplace.html" class="nav-dropdown-link">Featured APIs</a></li>
                         </ul>
@@ -59,12 +58,17 @@
 
                     <li><a href="contact.html" class="nav-link whitespace-nowrap">Contact</a></li>
                     <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                            <span class="theme-toggle-slider">
+                                <span class="theme-toggle-icon">🌙</span>
+                            </span>
+                        </button>
                         <a href="dashboard.html"
-                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold">Dashboard</a>
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold dark-mode-text">Dashboard</a>
                         <a href="login.html"
-                            class="px-4 py-2 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition-all whitespace-nowrap text-sm font-semibold">Login</a>
+                            class="px-4 py-2 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A] dark-mode-text">Login</a>
                         <a href="register.html"
-                            class="px-4 py-2 bg-gradient-to-r from-[#1E40AF]-500 to-[#22D3EE]-500 rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold">Sign
+                            class="px-4 py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold text-white">Sign
                             Up</a>
                     </li>
                 </ul>
@@ -74,11 +78,11 @@
                     class="mobile-menu-toggle w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg bg-white/10 border border-white/20 text-[#0F172A] hover:bg-white/20 transition-colors flex-shrink-0"
                     aria-label="Toggle navigation" aria-expanded="false">
                     <span
-                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF]-400 to-[#22D3EE]-400 rounded-full transition-all"></span>
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
                     <span
-                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF]-400 to-[#22D3EE]-400 rounded-full transition-all"></span>
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
                     <span
-                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF]-400 to-[#22D3EE]-400 rounded-full transition-all"></span>
+                        class="block w-5 h-0.5 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-full transition-all"></span>
                 </button>
             </div>
         </div>
@@ -94,61 +98,58 @@
             <ul class="w-full px-6 py-8 space-y-2 overflow-y-auto flex-1 text-center pb-20">
                 <li class="nav-item-dropdown">
                     <a href="index.html"
-                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors">
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors text-white">
                         <span>Home</span>
                     </a>
                     <ul class="nav-dropdown">
                         <li><a href="index.html"
-                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Home</a></li>
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors text-white">Home</a></li>
                         <li><a href="home2.html"
-                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Home 2</a></li>
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors text-white">Home 2</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item-dropdown">
                     <a href="marketplace.html"
-                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors">
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors text-white">
                         <span>Marketplace</span>
                     </a>
                     <ul class="nav-dropdown">
-                        <li><a href="marketplace.html"
-                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Browse
-                                APIs</a></li>
                         <li><a href="api-details.html"
-                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">API
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors text-white">API
                                 Details</a></li>
                         <li><a href="marketplace.html"
-                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Featured
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors text-white">Featured
                                 APIs</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item-dropdown">
                     <a href="services.html"
-                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors">
+                        class="nav-link has-dropdown block py-3 px-4 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors text-white">
                         <span>Services</span>
                     </a>
                     <ul class="nav-dropdown">
                         <li><a href="services-details.html"
-                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Service
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors text-white">Service
                                 Details</a></li>
                         <li><a href="services.html"
-                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors">Custom
+                                class="nav-dropdown-link block py-2 px-8 hover:bg-white/10 rounded-lg transition-colors text-white">Custom
                                 Services</a></li>
                     </ul>
                 </li>
 
                 <li><a href="contact.html"
-                        class="block py-3 px-4 nav-link rounded-lg hover:bg-white/10 transition-colors">Contact</a>
+                        class="block py-3 px-4 nav-link rounded-lg hover:bg-white/10 transition-colors text-white">Contact</a>
                 </li>
 
                 <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
                     <a href="dashboard.html"
-                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold">Dashboard</a>
+                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold text-white">Dashboard</a>
                     <a href="login.html"
-                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition-all text-center font-semibold">Login</a>
+                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-white/20 transition-all text-center font-semibold text-white">Login</a>
                     <a href="register.html"
-                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF]-500 to-[#22D3EE]-500 rounded-lg hover:scale-105 transition-transform text-center font-semibold">Sign
+                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform text-center font-semibold text-white">Sign
                         Up</a>
                 </li>
             </ul>
@@ -188,21 +189,21 @@
                                 class="px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold">Active</span>
                         </div>
                     </div>
-                    <p class="text-xl text-gray-300 leading-relaxed mb-8">
+                    <p class="text-xl text-[#1F2937] leading-relaxed mb-8">
                         Secure payment processing API for your applications. Accept payments, manage subscriptions, and
                         handle invoices with ease.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <button
-                            class="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 transition-all">
+                            class="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 transition-all text-white">
                             Get API Key
                         </button>
                         <button
-                            class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all">
+                            class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all text-[#0F172A]">
                             View Documentation
                         </button>
                         <button
-                            class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all">
+                            class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all text-[#0F172A]">
                             Test Endpoint
                         </button>
                     </div>
@@ -220,12 +221,12 @@
                     <!-- Overview -->
                     <div class="details-section-card">
                         <h2 class="text-3xl font-bold mb-6 font-space-grotesk">Overview</h2>
-                        <p class="text-gray-300 leading-relaxed mb-4">
+                        <p class="text-[#1F2937] leading-relaxed mb-4">
                             The Stripe Payment API provides a comprehensive solution for processing payments online.
                             Whether you're building an e-commerce platform, SaaS application, or marketplace,
                             Stripe offers the tools you need to accept payments securely.
                         </p>
-                        <p class="text-gray-300 leading-relaxed">
+                        <p class="text-[#1F2937] leading-relaxed">
                             With support for over 135 currencies and multiple payment methods including credit cards,
                             digital wallets, and bank transfers, Stripe makes it easy to accept payments from customers
                             worldwide.

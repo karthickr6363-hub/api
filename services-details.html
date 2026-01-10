@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen">
+<body class="font-inter bg-[#F8FAFC] text-[#0F172A] min-h-screen overflow-x-hidden" data-theme="light">
 
      <!-- Navigation Header -->
      <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b-2 border-[#1E40AF]/30 shadow-sm">
@@ -59,10 +59,15 @@
 
                     <li><a href="contact.html" class="nav-link whitespace-nowrap">Contact</a></li>
                     <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
+                        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                            <span class="theme-toggle-slider">
+                                <span class="theme-toggle-icon">🌙</span>
+                            </span>
+                        </button>
                         <a href="dashboard.html"
-                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Dashboard</a>
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A] dark-mode-text">Dashboard</a>
                         <a href="login.html"
-                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A]">Login</a>
+                            class="px-4 py-2 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all whitespace-nowrap text-sm font-semibold text-[#0F172A] dark-mode-text">Login</a>
                         <a href="register.html"
                             class="px-4 py-2 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform whitespace-nowrap text-sm font-semibold text-white">Sign
                             Up</a>
@@ -142,12 +147,17 @@
                 </li>
 
                 <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
+                    <button id="themeToggleMobile" class="theme-toggle mb-2" aria-label="Toggle dark mode" title="Toggle dark mode">
+                        <span class="theme-toggle-slider">
+                            <span class="theme-toggle-icon">🌙</span>
+                        </span>
+                    </button>
                     <a href="dashboard.html"
-                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold text-[#0F172A]">Dashboard</a>
+                        class="inline-block py-3 px-6 bg-[#1E40AF]/10 border border-[#1E40AF]/30 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold text-[#0F172A] dark-mode-text">Dashboard</a>
                     <a href="login.html"
-                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold">Login</a>
+                        class="inline-block py-3 px-6 bg-white/10 border border-white/20 rounded-lg hover:bg-[#1E40AF]/20 transition-all text-center font-semibold dark-mode-text">Login</a>
                     <a href="register.html"
-                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform text-center font-semibold text-[#0F172A]">Sign
+                        class="inline-block py-3 px-6 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg hover:scale-105 transition-transform text-center font-semibold text-white">Sign
                         Up</a>
                 </li>
             </ul>
@@ -159,49 +169,49 @@
         <div class="absolute inset-0">
             <div class="service-details-bg-animation"></div>
         </div>
-        <div class="container mx-auto px-6 relative z-10">
+        <div class="container mx-auto px-4 sm:px-6 relative z-10 max-w-full">
             <div class="max-w-4xl mx-auto">
                 <div class="flex items-center space-x-4 mb-6">
                     <a href="services.html" class="text-[#1F2937] hover:text-[#0F172A] transition-colors">← Back to
                         Services</a>
                 </div>
-                <div class="service-details-hero-card">
+                <div class="service-details-hero-card max-w-full">
                     <div class="flex items-start justify-between mb-8 flex-wrap gap-4">
-                        <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 sm:space-x-4 flex-1 min-w-0">
                             <div
-                                class="w-24 h-24 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-3xl flex items-center justify-center text-5xl transform hover:rotate-12 transition-transform">
+                                class="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-2xl sm:rounded-3xl flex items-center justify-center text-3xl sm:text-4xl lg:text-5xl transform hover:rotate-12 transition-transform flex-shrink-0">
                                 🔌
                             </div>
-                            <div>
-                                <h1 class="text-5xl font-bold font-space-grotesk mb-2">API Integration Service</h1>
-                                <p class="text-[#1F2937] text-lg">Professional API integration solutions</p>
+                            <div class="min-w-0 flex-1">
+                                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-space-grotesk mb-2 break-words">API Integration Service</h1>
+                                <p class="text-[#1F2937] text-sm sm:text-base lg:text-lg break-words">Professional API integration solutions</p>
                             </div>
                         </div>
-                        <div class="text-right">
+                        <div class="text-left sm:text-right w-full sm:w-auto">
                             <div class="mb-2">
                                 <span
-                                    class="px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold">Available</span>
+                                    class="px-3 sm:px-4 py-2 bg-[#1E40AF]/20 text-[#1E40AF] rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap">Available</span>
                             </div>
-                            <div class="text-sm text-[#1F2937]">
-                                Starting at <span class="text-2xl font-bold text-yellow-400">$499</span>/month
+                            <div class="text-xs sm:text-sm text-[#1F2937]">
+                                Starting at <span class="text-xl sm:text-2xl font-bold text-[#1E40AF]">$499</span>/month
                             </div>
                         </div>
                     </div>
-                    <p class="text-xl text-gray-300 leading-relaxed mb-8">
+                    <p class="text-base sm:text-lg lg:text-xl text-[#1F2937] leading-relaxed mb-8 break-words">
                         Seamless integration of APIs into your existing infrastructure with expert support.
                         Our team of specialists will help you integrate, configure, and optimize your API connections.
                     </p>
-                    <div class="flex flex-wrap gap-4">
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                         <button
-                            class="px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl font-semibold hover:shadow-2xl hover:shadow-yellow-500/50 transform hover:scale-105 transition-all">
+                            class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-xl font-semibold hover:shadow-2xl hover:shadow-[#1E40AF]/50 transform hover:scale-105 transition-all text-white text-sm sm:text-base whitespace-nowrap">
                             Get Started
                         </button>
                         <button
-                            class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all">
+                            class="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all text-sm sm:text-base whitespace-nowrap">
                             Schedule Consultation
                         </button>
                         <button
-                            class="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all">
+                            class="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-lg rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all text-sm sm:text-base whitespace-nowrap">
                             Download Brochure
                         </button>
                     </div>
@@ -211,20 +221,20 @@
     </section>
 
     <!-- Service Details Content -->
-    <section class="py-16">
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <section class="py-16 overflow-x-hidden">
+        <div class="container mx-auto px-4 sm:px-6 max-w-full">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Main Content -->
                 <div class="lg:col-span-2 space-y-8">
                     <!-- Overview -->
-                    <div class="service-details-section-card">
-                        <h2 class="text-3xl font-bold mb-6 font-space-grotesk">Service Overview</h2>
-                        <p class="text-gray-300 leading-relaxed mb-4">
+                    <div class="service-details-section-card max-w-full">
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-6 font-space-grotesk break-words">Service Overview</h2>
+                        <p class="text-[#1F2937] leading-relaxed mb-4 break-words">
                             Our API Integration Service provides comprehensive solutions for integrating third-party
                             APIs into your applications. Whether you're building a new application or enhancing
                             an existing one, our expert team will ensure seamless integration.
                         </p>
-                        <p class="text-gray-300 leading-relaxed">
+                        <p class="text-[#1F2937] leading-relaxed break-words">
                             We handle everything from initial planning and architecture design to implementation,
                             testing, and ongoing maintenance. Our goal is to make API integration as smooth and
                             efficient as possible for your team.
@@ -232,84 +242,84 @@
                     </div>
 
                     <!-- Features -->
-                    <div class="service-details-section-card">
-                        <h2 class="text-3xl font-bold mb-6 font-space-grotesk">Key Features</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="service-feature-item">
+                    <div class="service-details-section-card max-w-full">
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-6 font-space-grotesk break-words">Key Features</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                            <div class="service-feature-item max-w-full">
                                 <div class="text-3xl mb-3">🎯</div>
-                                <h3 class="text-xl font-semibold mb-2">Custom Integration</h3>
-                                <p class="text-[#1F2937]">Tailored integration solutions designed specifically for your
+                                <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Custom Integration</h3>
+                                <p class="text-[#1F2937] text-sm sm:text-base break-words">Tailored integration solutions designed specifically for your
                                     needs</p>
                             </div>
-                            <div class="service-feature-item">
+                            <div class="service-feature-item max-w-full">
                                 <div class="text-3xl mb-3">⚡</div>
-                                <h3 class="text-xl font-semibold mb-2">Fast Implementation</h3>
-                                <p class="text-[#1F2937]">Quick turnaround times without compromising quality</p>
+                                <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Fast Implementation</h3>
+                                <p class="text-[#1F2937] text-sm sm:text-base break-words">Quick turnaround times without compromising quality</p>
                             </div>
-                            <div class="service-feature-item">
+                            <div class="service-feature-item max-w-full">
                                 <div class="text-3xl mb-3">🔧</div>
-                                <h3 class="text-xl font-semibold mb-2">Expert Support</h3>
-                                <p class="text-[#1F2937]">Dedicated support team available 24/7</p>
+                                <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Expert Support</h3>
+                                <p class="text-[#1F2937] text-sm sm:text-base break-words">Dedicated support team available 24/7</p>
                             </div>
-                            <div class="service-feature-item">
+                            <div class="service-feature-item max-w-full">
                                 <div class="text-3xl mb-3">📚</div>
-                                <h3 class="text-xl font-semibold mb-2">Comprehensive Docs</h3>
-                                <p class="text-[#1F2937]">Detailed documentation and code examples</p>
+                                <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Comprehensive Docs</h3>
+                                <p class="text-[#1F2937] text-sm sm:text-base break-words">Detailed documentation and code examples</p>
                             </div>
-                            <div class="service-feature-item">
+                            <div class="service-feature-item max-w-full">
                                 <div class="text-3xl mb-3">🔄</div>
-                                <h3 class="text-xl font-semibold mb-2">Ongoing Maintenance</h3>
-                                <p class="text-[#1F2937]">Continuous monitoring and updates</p>
+                                <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Ongoing Maintenance</h3>
+                                <p class="text-[#1F2937] text-sm sm:text-base break-words">Continuous monitoring and updates</p>
                             </div>
-                            <div class="service-feature-item">
+                            <div class="service-feature-item max-w-full">
                                 <div class="text-3xl mb-3">✅</div>
-                                <h3 class="text-xl font-semibold mb-2">Quality Assurance</h3>
-                                <p class="text-[#1F2937]">Rigorous testing and quality checks</p>
+                                <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Quality Assurance</h3>
+                                <p class="text-[#1F2937] text-sm sm:text-base break-words">Rigorous testing and quality checks</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Process -->
-                    <div class="service-details-section-card">
-                        <h2 class="text-3xl font-bold mb-6 font-space-grotesk">Our Process</h2>
-                        <div class="space-y-6">
-                            <div class="service-process-item">
-                                <div class="process-number">1</div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-semibold mb-2">Discovery & Planning</h3>
-                                    <p class="text-[#1F2937]">We analyze your requirements and create a detailed
+                    <div class="service-details-section-card max-w-full">
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-6 font-space-grotesk break-words">Our Process</h2>
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="service-process-item max-w-full">
+                                <div class="process-number flex-shrink-0">1</div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Discovery & Planning</h3>
+                                    <p class="text-[#1F2937] text-sm sm:text-base break-words">We analyze your requirements and create a detailed
                                         integration plan</p>
                                 </div>
                             </div>
-                            <div class="service-process-item">
-                                <div class="process-number">2</div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-semibold mb-2">Architecture Design</h3>
-                                    <p class="text-[#1F2937]">Our architects design the optimal integration architecture
+                            <div class="service-process-item max-w-full">
+                                <div class="process-number flex-shrink-0">2</div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Architecture Design</h3>
+                                    <p class="text-[#1F2937] text-sm sm:text-base break-words">Our architects design the optimal integration architecture
                                     </p>
                                 </div>
                             </div>
-                            <div class="service-process-item">
-                                <div class="process-number">3</div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-semibold mb-2">Implementation</h3>
-                                    <p class="text-[#1F2937]">Expert developers implement the integration with best
+                            <div class="service-process-item max-w-full">
+                                <div class="process-number flex-shrink-0">3</div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Implementation</h3>
+                                    <p class="text-[#1F2937] text-sm sm:text-base break-words">Expert developers implement the integration with best
                                         practices</p>
                                 </div>
                             </div>
-                            <div class="service-process-item">
-                                <div class="process-number">4</div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-semibold mb-2">Testing & QA</h3>
-                                    <p class="text-[#1F2937]">Comprehensive testing ensures everything works perfectly
+                            <div class="service-process-item max-w-full">
+                                <div class="process-number flex-shrink-0">4</div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Testing & QA</h3>
+                                    <p class="text-[#1F2937] text-sm sm:text-base break-words">Comprehensive testing ensures everything works perfectly
                                     </p>
                                 </div>
                             </div>
-                            <div class="service-process-item">
-                                <div class="process-number">5</div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-semibold mb-2">Deployment & Support</h3>
-                                    <p class="text-[#1F2937]">Smooth deployment with ongoing support and monitoring</p>
+                            <div class="service-process-item max-w-full">
+                                <div class="process-number flex-shrink-0">5</div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-lg sm:text-xl font-semibold mb-2 break-words">Deployment & Support</h3>
+                                    <p class="text-[#1F2937] text-sm sm:text-base break-words">Smooth deployment with ongoing support and monitoring</p>
                                 </div>
                             </div>
                         </div>
@@ -317,80 +327,80 @@
                 </div>
 
                 <!-- Sidebar -->
-                <div class="space-y-6">
+                <div class="space-y-4 sm:space-y-6">
                     <!-- Pricing -->
-                    <div class="service-details-sidebar-card">
-                        <h3 class="text-xl font-bold mb-4">Pricing Plans</h3>
-                        <div class="space-y-4">
-                            <div class="pricing-tier">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="font-semibold">Starter</span>
-                                    <span class="text-yellow-400 font-bold">$499/mo</span>
+                    <div class="service-details-sidebar-card max-w-full">
+                        <h3 class="text-lg sm:text-xl font-bold mb-4 break-words">Pricing Plans</h3>
+                        <div class="space-y-3 sm:space-y-4">
+                            <div class="pricing-tier max-w-full">
+                                <div class="flex justify-between items-center mb-2 gap-2">
+                                    <span class="font-semibold text-sm sm:text-base break-words">Starter</span>
+                                    <span class="text-[#1E40AF] font-bold text-sm sm:text-base whitespace-nowrap">$499/mo</span>
                                 </div>
-                                <p class="text-sm text-[#1F2937]">Perfect for small projects</p>
+                                <p class="text-xs sm:text-sm text-[#1F2937] break-words">Perfect for small projects</p>
                             </div>
-                            <div class="pricing-tier">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="font-semibold">Professional</span>
-                                    <span class="text-yellow-400 font-bold">$1,299/mo</span>
+                            <div class="pricing-tier max-w-full">
+                                <div class="flex justify-between items-center mb-2 gap-2">
+                                    <span class="font-semibold text-sm sm:text-base break-words">Professional</span>
+                                    <span class="text-[#1E40AF] font-bold text-sm sm:text-base whitespace-nowrap">$1,299/mo</span>
                                 </div>
-                                <p class="text-sm text-[#1F2937]">For growing businesses</p>
+                                <p class="text-xs sm:text-sm text-[#1F2937] break-words">For growing businesses</p>
                             </div>
-                            <div class="pricing-tier">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="font-semibold">Enterprise</span>
-                                    <span class="text-yellow-400 font-bold">Custom</span>
+                            <div class="pricing-tier max-w-full">
+                                <div class="flex justify-between items-center mb-2 gap-2">
+                                    <span class="font-semibold text-sm sm:text-base break-words">Enterprise</span>
+                                    <span class="text-[#1E40AF] font-bold text-sm sm:text-base whitespace-nowrap">Custom</span>
                                 </div>
-                                <p class="text-sm text-[#1F2937]">Tailored solutions</p>
+                                <p class="text-xs sm:text-sm text-[#1F2937] break-words">Tailored solutions</p>
                             </div>
                         </div>
                         <button
-                            class="w-full mt-6 px-6 py-3 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-yellow-500/50 transition-all">
+                            class="w-full mt-4 sm:mt-6 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] rounded-lg font-semibold hover:shadow-lg hover:shadow-[#1E40AF]/50 transition-all text-white text-sm sm:text-base">
                             View All Plans
                         </button>
                     </div>
 
                     <!-- What's Included -->
-                    <div class="service-details-sidebar-card">
-                        <h3 class="text-xl font-bold mb-4">What's Included</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start space-x-3">
-                                <span class="text-yellow-400 mt-1">✓</span>
-                                <span class="text-gray-300">API Integration Setup</span>
+                    <div class="service-details-sidebar-card max-w-full">
+                        <h3 class="text-lg sm:text-xl font-bold mb-4 break-words">What's Included</h3>
+                        <ul class="space-y-2 sm:space-y-3">
+                            <li class="flex items-start space-x-2 sm:space-x-3">
+                                <span class="text-[#1E40AF] mt-1 flex-shrink-0">✓</span>
+                                <span class="text-[#1F2937] text-sm sm:text-base break-words">API Integration Setup</span>
                             </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="text-yellow-400 mt-1">✓</span>
-                                <span class="text-gray-300">Custom Configuration</span>
+                            <li class="flex items-start space-x-2 sm:space-x-3">
+                                <span class="text-[#1E40AF] mt-1 flex-shrink-0">✓</span>
+                                <span class="text-[#1F2937] text-sm sm:text-base break-words">Custom Configuration</span>
                             </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="text-yellow-400 mt-1">✓</span>
-                                <span class="text-gray-300">24/7 Technical Support</span>
+                            <li class="flex items-start space-x-2 sm:space-x-3">
+                                <span class="text-[#1E40AF] mt-1 flex-shrink-0">✓</span>
+                                <span class="text-[#1F2937] text-sm sm:text-base break-words">24/7 Technical Support</span>
                             </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="text-yellow-400 mt-1">✓</span>
-                                <span class="text-gray-300">Documentation & Training</span>
+                            <li class="flex items-start space-x-2 sm:space-x-3">
+                                <span class="text-[#1E40AF] mt-1 flex-shrink-0">✓</span>
+                                <span class="text-[#1F2937] text-sm sm:text-base break-words">Documentation & Training</span>
                             </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="text-yellow-400 mt-1">✓</span>
-                                <span class="text-gray-300">Performance Monitoring</span>
+                            <li class="flex items-start space-x-2 sm:space-x-3">
+                                <span class="text-[#1E40AF] mt-1 flex-shrink-0">✓</span>
+                                <span class="text-[#1F2937] text-sm sm:text-base break-words">Performance Monitoring</span>
                             </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="text-yellow-400 mt-1">✓</span>
-                                <span class="text-gray-300">Regular Updates</span>
+                            <li class="flex items-start space-x-2 sm:space-x-3">
+                                <span class="text-[#1E40AF] mt-1 flex-shrink-0">✓</span>
+                                <span class="text-[#1F2937] text-sm sm:text-base break-words">Regular Updates</span>
                             </li>
                         </ul>
                     </div>
 
                     <!-- Contact -->
-                    <div class="service-details-sidebar-card">
-                        <h3 class="text-xl font-bold mb-4">Get in Touch</h3>
-                        <p class="text-[#1F2937] mb-4 text-sm">Have questions? Our team is here to help.</p>
+                    <div class="service-details-sidebar-card max-w-full">
+                        <h3 class="text-lg sm:text-xl font-bold mb-4 break-words">Get in Touch</h3>
+                        <p class="text-[#1F2937] mb-4 text-xs sm:text-sm break-words">Have questions? Our team is here to help.</p>
                         <button
-                            class="w-full px-6 py-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/20 hover:bg-white/20 transition-all font-semibold mb-3">
+                            class="w-full px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/20 hover:bg-white/20 transition-all font-semibold mb-3 text-sm sm:text-base">
                             📞 Schedule Call
                         </button>
                         <button
-                            class="w-full px-6 py-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/20 hover:bg-white/20 transition-all font-semibold">
+                            class="w-full px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/20 hover:bg-white/20 transition-all font-semibold text-sm sm:text-base">
                             ✉️ Send Email
                         </button>
                     </div>
@@ -400,14 +410,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-yellow-500/20 relative">
+    <footer class="py-12 border-t border-[#1E40AF]/20 relative">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-lg"></div>
+                        <div class="w-10 h-10 bg-gradient-to-br from-[#1E40AF] to-[#22D3EE] rounded-lg"></div>
                         <span
-                            class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">APIHub</span>
+                            class="text-2xl font-bold font-space-grotesk bg-gradient-to-r from-[#1E40AF] to-[#22D3EE] bg-clip-text text-transparent">APIHub</span>
                     </div>
                     <p class="text-[#1F2937] mb-4 max-w-md">
                         Professional API integration services with expert support. Get started with our comprehensive
@@ -453,7 +463,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-yellow-500/20 pt-8">
+            <div class="border-t border-[#1E40AF]/20 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-[#1F2937] text-sm mb-4 md:mb-0">© 2025 APIHub. All rights reserved.</p>
                     <div class="flex flex-wrap justify-center gap-6 text-sm text-[#1F2937]">

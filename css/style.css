@@ -1,3 +1,33 @@
+/* Dark Theme CSS Variables */
+:root {
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #1F2937;
+    --text-muted: #6B7280;
+    --border-color: rgba(30, 64, 175, 0.2);
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --nav-bg: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0F172A;
+    --bg-secondary: #1E293B;
+    --text-primary: #F1F5F9;
+    --text-secondary: #E2E8F0;
+    --text-muted: #94A3B8;
+    --border-color: rgba(30, 64, 175, 0.3);
+    --card-bg: rgba(30, 41, 59, 0.8);
+    --nav-bg: rgba(15, 23, 42, 0.95);
+}
+
+/* Apply theme colors */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 /* Custom Fonts */
 .font-inter {
     font-family: 'Inter', sans-serif;
@@ -16,12 +46,57 @@
     display: none !important;
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    background: rgba(30, 64, 175, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(30, 64, 175, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+}
+
+.theme-toggle:hover {
+    background: rgba(30, 64, 175, 0.3);
+    border-color: rgba(30, 64, 175, 0.4);
+}
+
+.theme-toggle-slider {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #1E40AF, #22D3EE);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle-slider {
+    transform: translateX(24px);
+}
+
+.theme-toggle-icon {
+    font-size: 10px;
+    color: white;
+}
+
 /* Navigation Styles */
 .nav-link {
     position: relative;
     transition: color 0.3s ease;
     color: rgba(15, 23, 42, 0.85);
     font-weight: 500;
+}
+
+[data-theme="dark"] .nav-link {
+    color: rgba(241, 245, 249, 0.85);
 }
 
 .nav-link:hover {
@@ -1248,6 +1323,20 @@
     body.sidebar-open .dashboard-main-content {
         pointer-events: none;
     }
+
+    /* Prevent horizontal overflow on mobile */
+    .dashboard-stat-card,
+    .dashboard-chart-card,
+    .dashboard-activity-card,
+    .dashboard-keys-card,
+    .dashboard-action-card {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .dashboard-keys-card .overflow-x-auto {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1911,6 +2000,15 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     transform-style: preserve-3d;
     transition: transform 0.3s ease;
+    min-width: 0;
+    max-width: 100%;
+}
+
+@media (max-width: 640px) {
+    .service-details-hero-card {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
 }
 
 .service-details-hero-card:hover {
@@ -1925,6 +2023,18 @@
     padding: 2.5rem;
     margin-bottom: 2rem;
     transition: all 0.3s ease;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+    .service-details-section-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+    }
 }
 
 .service-details-section-card:hover {
@@ -1939,6 +2049,18 @@
     border-radius: 24px;
     padding: 2rem;
     margin-bottom: 1.5rem;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+    .service-details-sidebar-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin-bottom: 1rem;
+    }
 }
 
 .service-feature-item {
@@ -1947,6 +2069,17 @@
     border-radius: 16px;
     padding: 1.5rem;
     transition: all 0.3s ease;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+    .service-feature-item {
+        padding: 1rem;
+        border-radius: 12px;
+    }
 }
 
 .service-feature-item:hover {
@@ -1964,6 +2097,18 @@
     border: 1px solid rgba(30, 64, 175, 0.15);
     border-radius: 16px;
     transition: all 0.3s ease;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+    .service-process-item {
+        padding: 1rem;
+        gap: 1rem;
+        border-radius: 12px;
+    }
 }
 
 .service-process-item:hover {
@@ -1993,6 +2138,17 @@
     border: 1px solid rgba(30, 64, 175, 0.15);
     border-radius: 12px;
     transition: all 0.3s ease;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+    .pricing-tier {
+        padding: 0.75rem;
+        border-radius: 10px;
+    }
 }
 
 .pricing-tier:hover {
@@ -2981,4 +3137,329 @@ footer::before {
     .testimonial-content {
         padding: 2rem;
     }
+}
+
+/* Dark Theme Styles */
+[data-theme="dark"],
+[data-theme="dark"] body {
+    background-color: #0F172A !important;
+    color: #F1F5F9 !important;
+}
+
+/* Global text visibility fix for dark mode */
+[data-theme="dark"] section,
+[data-theme="dark"] article,
+[data-theme="dark"] main,
+[data-theme="dark"] .hero-section,
+[data-theme="dark"] .home-hero {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] nav,
+[data-theme="dark"] .backdrop-blur-xl {
+    background: rgba(15, 23, 42, 0.95) !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+}
+
+[data-theme="dark"] .bg-white,
+[data-theme="dark"] .bg-\[#F8FAFC\] {
+    background-color: #1E293B !important;
+}
+
+[data-theme="dark"] .bg-white\/95,
+[data-theme="dark"] .bg-white\/10,
+[data-theme="dark"] .bg-white\/20 {
+    background-color: rgba(30, 41, 59, 0.95) !important;
+}
+
+[data-theme="dark"] .text-\[#0F172A\],
+[data-theme="dark"] .text-\[#1F2937\],
+[data-theme="dark"] .dark-mode-text {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .text-gray-300 {
+    color: #CBD5E1 !important;
+}
+
+[data-theme="dark"] .card-front,
+[data-theme="dark"] .api-card-front,
+[data-theme="dark"] .service-card-front,
+[data-theme="dark"] .details-hero-card,
+[data-theme="dark"] .details-section-card,
+[data-theme="dark"] .details-sidebar-card,
+[data-theme="dark"] .service-details-hero-card,
+[data-theme="dark"] .service-details-section-card,
+[data-theme="dark"] .service-details-sidebar-card,
+[data-theme="dark"] .dashboard-stat-card,
+[data-theme="dark"] .dashboard-chart-card,
+[data-theme="dark"] .dashboard-activity-card,
+[data-theme="dark"] .dashboard-keys-card,
+[data-theme="dark"] .dashboard-action-card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .tab-content-card,
+[data-theme="dark"] .contact-form-card,
+[data-theme="dark"] .contact-info-card {
+    background: rgba(30, 41, 59, 0.8) !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .feature-item,
+[data-theme="dark"] .service-feature-item,
+[data-theme="dark"] .service-process-item,
+[data-theme="dark"] .pricing-tier {
+    background: rgba(30, 41, 59, 0.6) !important;
+    border-color: rgba(30, 64, 175, 0.2) !important;
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .mobile-menu-content {
+    background: rgba(15, 23, 42, 0.95) !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+}
+
+[data-theme="dark"] .dashboard-sidebar {
+    background: rgba(15, 23, 42, 0.95) !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+}
+
+[data-theme="dark"] .code-block {
+    background: rgba(15, 23, 42, 0.9) !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+}
+
+[data-theme="dark"] .code-content {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .code-content code {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] footer {
+    background-color: #0F172A !important;
+    border-color: rgba(30, 64, 175, 0.2) !important;
+}
+
+[data-theme="dark"] .border-t {
+    border-color: rgba(30, 64, 175, 0.2) !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background: rgba(30, 41, 59, 0.7) !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #94A3B8 !important;
+}
+
+[data-theme="dark"] table {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] table th {
+    color: #CBD5E1 !important;
+}
+
+[data-theme="dark"] table td {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .login-card-front,
+[data-theme="dark"] .register-card-front {
+    background: rgba(30, 41, 59, 0.9) !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .login-input,
+[data-theme="dark"] .register-input {
+    background: rgba(15, 23, 42, 0.7) !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .login-input::placeholder,
+[data-theme="dark"] .register-input::placeholder {
+    color: #94A3B8 !important;
+}
+
+[data-theme="dark"] label {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .input-icon {
+    color: #60A5FA !important;
+}
+
+[data-theme="dark"] .nav-dropdown {
+    background: rgba(30, 41, 59, 0.98) !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+}
+
+[data-theme="dark"] .nav-dropdown-link {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .nav-dropdown-link:hover {
+    background: rgba(30, 64, 175, 0.2) !important;
+    color: #60A5FA !important;
+}
+
+[data-theme="dark"] .bg-white\/95,
+[data-theme="dark"] .bg-white\/10,
+[data-theme="dark"] .bg-white\/20 {
+    background-color: rgba(30, 41, 59, 0.95) !important;
+}
+
+[data-theme="dark"] .border-white\/20,
+[data-theme="dark"] .border-white\/10 {
+    border-color: rgba(30, 64, 175, 0.3) !important;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: #F1F5F9 !important;
+}
+
+[data-theme="dark"] p {
+    color: #CBD5E1 !important;
+}
+
+[data-theme="dark"] a {
+    color: #60A5FA !important;
+}
+
+[data-theme="dark"] a:hover {
+    color: #93C5FD !important;
+}
+
+/* Fix Tailwind arbitrary text color classes in dark mode */
+/* Multiple selector patterns to catch different ways Tailwind might escape brackets */
+[data-theme="dark"] .text-\[#1F2937\],
+[data-theme="dark"] .text-\[#0F172A\],
+[data-theme="dark"] [class*="text-[#1F2937]"],
+[data-theme="dark"] [class*="text-[#0F172A]"],
+[data-theme="dark"] [class*="text-\\[#1F2937\\]"],
+[data-theme="dark"] [class*="text-\\[#0F172A\\]"],
+[data-theme="dark"] body.text-\[#0F172A\],
+[data-theme="dark"] body[class*="text-[#0F172A]"] {
+    color: #F1F5F9 !important;
+}
+
+/* Ensure body text is always visible in dark mode */
+[data-theme="dark"] body {
+    color: #F1F5F9 !important;
+}
+
+/* Override any text color classes on body */
+[data-theme="dark"] body.text-\[#1F2937\],
+[data-theme="dark"] body[class*="text-[#1F2937]"] {
+    color: #F1F5F9 !important;
+}
+
+/* Ensure all text elements are visible in dark mode */
+[data-theme="dark"] .nav-link,
+[data-theme="dark"] .mobile-menu-content .nav-link,
+[data-theme="dark"] .mobile-menu-content a {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .mobile-menu-content {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .mobile-menu-content button {
+    color: #E2E8F0 !important;
+}
+
+/* Fix all button text in dark mode */
+[data-theme="dark"] button:not(.theme-toggle):not(.theme-toggle-slider),
+[data-theme="dark"] .btn,
+[data-theme="dark"] .button-3d,
+[data-theme="dark"] button.text-\[#0F172A\],
+[data-theme="dark"] button.text-\[#1F2937\] {
+    color: #E2E8F0 !important;
+}
+
+/* Override any dark text colors on light backgrounds in dark mode */
+[data-theme="dark"] [class*="text-\[#"],
+[data-theme="dark"] [class*="text-gray-"],
+[data-theme="dark"] [class*="text-slate-"] {
+    color: #E2E8F0 !important;
+}
+
+/* Specific overrides for common text color classes */
+[data-theme="dark"] .text-white {
+    color: #F1F5F9 !important;
+}
+
+[data-theme="dark"] code {
+    background: rgba(15, 23, 42, 0.9) !important;
+    color: #E2E8F0 !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+}
+
+[data-theme="dark"] .progress-bar {
+    background: rgba(30, 64, 175, 0.2) !important;
+}
+
+[data-theme="dark"] .progress-fill {
+    background: linear-gradient(90deg, #3B82F6, #06B6D4) !important;
+}
+
+/* Comprehensive text visibility fix for dark mode */
+/* Target elements that might have dark text colors in light mode */
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3,
+[data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6,
+[data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] div,
+[data-theme="dark"] li, [data-theme="dark"] td, [data-theme="dark"] th,
+[data-theme="dark"] label, [data-theme="dark"] small {
+    color: #E2E8F0 !important;
+}
+
+/* Ensure headings are even lighter for better visibility */
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3,
+[data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6 {
+    color: #F1F5F9 !important;
+}
+
+/* Fix text in cards and sections - ensure all nested elements have light colors */
+[data-theme="dark"] .card-3d p,
+[data-theme="dark"] .api-card-3d p,
+[data-theme="dark"] .feature-card p,
+[data-theme="dark"] .tab-content-card p,
+[data-theme="dark"] .service-card p,
+[data-theme="dark"] .pricing-card p,
+[data-theme="dark"] .card-3d span,
+[data-theme="dark"] .api-card-3d span,
+[data-theme="dark"] .feature-card span,
+[data-theme="dark"] .tab-content-card span,
+[data-theme="dark"] .service-card span,
+[data-theme="dark"] .pricing-card span {
+    color: #E2E8F0 !important;
+}
+
+/* Fix footer text */
+[data-theme="dark"] footer,
+[data-theme="dark"] footer * {
+    color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] footer a {
+    color: #60A5FA !important;
+}
+
+[data-theme="dark"] footer a:hover {
+    color: #93C5FD !important;
 }

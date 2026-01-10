@@ -2,6 +2,7 @@
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', function () {
+    initTheme();
     init3DEffects();
     initCardInteractions();
     initFilterButtons();
@@ -15,6 +16,62 @@ document.addEventListener('DOMContentLoaded', function () {
     initDropdownNav();
     initDashboardSidebar();
 });
+
+// Dark Theme Toggle
+function initTheme() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const html = document.documentElement;
+    const body = document.body;
+    
+    // Get saved theme or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    if (body) {
+        body.setAttribute('data-theme', savedTheme);
+    }
+    
+    // Update toggle state
+    function updateToggleState(theme) {
+        const toggles = [themeToggle, themeToggleMobile].filter(Boolean);
+        toggles.forEach(toggle => {
+            const icon = toggle.querySelector('.theme-toggle-icon');
+            if (icon) {
+                if (theme === 'dark') {
+                    toggle.classList.add('active');
+                    icon.textContent = '☀️';
+                } else {
+                    toggle.classList.remove('active');
+                    icon.textContent = '🌙';
+                }
+            }
+        });
+    }
+    
+    updateToggleState(savedTheme);
+    
+    // Toggle theme function
+    function toggleTheme() {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        html.setAttribute('data-theme', newTheme);
+        if (body) {
+            body.setAttribute('data-theme', newTheme);
+        }
+        localStorage.setItem('theme', newTheme);
+        updateToggleState(newTheme);
+    }
+    
+    // Add event listeners
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    if (themeToggleMobile) {
+        themeToggleMobile.addEventListener('click', toggleTheme);
+    }
+}
 
 // 3D Card Effects
 function init3DEffects() {
