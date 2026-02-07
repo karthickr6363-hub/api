@@ -31,11 +31,7 @@
                 </div>
 
                 <!-- Desktop Menu -->
-               
-
-                    
-
-                    
+                <ul class="desktop-menu hidden nav-menu items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 flex-1 justify-center min-w-0 list-none flex">
                     <!-- User Profile & Logout (Desktop) -->
                     <li class="flex-shrink-0 ml-4 sm:ml-6 md:ml-8 flex items-center gap-3">
                         <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -95,27 +91,30 @@
                     </div>
                 </li>
 
-                
+                <!-- Navigation Items (Mobile) -->
+                <li><a href="dashboard.html" class="block py-3 px-4 nav-link rounded-lg hover:bg-[#1E40AF]/10 transition-colors">Dashboard</a></li>
+                <li><a href="marketplace.html" class="block py-3 px-4 nav-link rounded-lg hover:bg-[#1E40AF]/10 transition-colors">Marketplace</a></li>
+                <li><a href="services.html" class="block py-3 px-4 nav-link rounded-lg hover:bg-[#1E40AF]/10 transition-colors">Services</a></li>
+                <li><a href="contact.html" class="block py-3 px-4 nav-link rounded-lg hover:bg-[#1E40AF]/10 transition-colors">Contact</a></li>
 
-
-
-                <!-- Theme Toggle (Mobile) -->
-                <li class="pt-4 border-t border-white/10 pb-4">
-                    <button id="themeToggleMobile" class="theme-toggle w-full mb-3" aria-label="Toggle dark mode" title="Toggle dark mode">
+                <li class="pt-4 pb-4 space-y-2 flex flex-col items-center">
+                    <button id="themeToggleMobile" class="theme-toggle mb-2" aria-label="Toggle dark mode" title="Toggle dark mode">
                         <span class="theme-toggle-slider">
                             <span class="theme-toggle-icon">🌙</span>
                         </span>
                     </button>
-                </li>
-                <!-- Logout Button (Mobile) -->
-                <li class="pb-4">
                     <a href="index.html"
-                        class="inline-block py-3 px-6 bg-red-500/10 border border-red-500/30 rounded-lg hover:bg-red-500/20 transition-all text-center font-semibold text-red-400 w-full">
+                        class="inline-block py-3 px-6 bg-red-500/10 border border-red-500/30 rounded-lg hover:bg-red-500/20 transition-all text-center font-semibold text-red-400 hover:text-red-300">
                         Logout
                     </a>
                 </li>
             </ul>
-        </div>
+
+                
+
+
+
+                                            </div>
     </div>
 
     <!-- Dashboard Content -->
